@@ -1,9 +1,9 @@
 import './App.css';
 import { Chart } from "react-google-charts";
-//import {data} from "./data/chartData.js";
-//import {options} from "./data/chartData.js";
+import {data} from "./data/chartData.js";
+import {options} from "./data/chartData.js";
 
-
+/*
 export const data = [
   ["Task", "Hours per Day"],
   ["Work", 11],
@@ -16,7 +16,7 @@ export const data = [
 export const options = {
   title: "My Daily Activities",
 };
-
+*/
 
 function App() {
   return (
