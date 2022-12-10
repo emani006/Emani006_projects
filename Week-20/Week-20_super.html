@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content:baseline;
+            width: 300px;
+            height: 650px;
+            background-color:antiquewhite;
+            border: 1px solid maroon;
+            border-radius: 20px;
+            padding: 15px;
+            margin: 10px;
+        }
+        h2{
+            color:red;
+        }
+        .title{
+            color: slateblue;
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .rate{
+            margin-bottom: 10px;
+        }
+        .text{
+            color: black;
+            font-size: 11px;
+            font-weight: normal;
+        }
+        img{
+            margin: 0 auto;
+        }
+        #out{
+            display: flex;
+            justify-content: space-between;
+        }
+        #status{
+            width: 65px;
+            margin-left: 10px;
+        }
+        label{
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        #rate{
+            margin-bottom: 10px;
+            background-color:lightpink;
+            font-size: 16px;
+        }
+        .evaluation{
+            display: flex;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+        }
+        button{
+            width: 50px;
+            height: 25px;
+            margin-left: 10px;
+            box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+            transition: .3s;
+            background-color:lavender;
+        }
+        #error{
+            font-size: 14px;
+            text-align: center;
+            background-color: rgb(255, 94, 94);
+        }
+    </style>
+</head>
+<body>
+<div class="evaluation">
+    <label>Задай рейтинг супергероя: </label>
+        <select id="heroOption" name="heroRate"> 
+            <option selected disabled value="">Выбери супергероя</option>
+            <option value="0">Бэтмен</option>
+            <option value="1">Супермэн</option>
+            <option value="2">Чудо-женщина</option>
+        </select>
+    <input id="status" type="number" placeholder="out of 10" min="1" max="10">
+    <button id="save" type="button">RATE</button>
+</div>
+<div id="error"></div>
+<div id="out"></div>
+    <script>
+let spH = `[{
+    "name": "Бэтмен",
+    "image": "https://n1s1.hsmedia.ru/13/a5/b2/13a5b2373d5e23489d9a4949ada5b927/547x397_0xac120002_8752067681540468870.jpg",
+    "features": {
+        "universe": "DC Comics",
+        "alterego": "Брюс Уэйн",
+        "career": "борец с преступностью, филантроп, миллиардер",
+        "friends": "Робин, Бэтгерл",
+        "superpower": "интеллект, обширные познания, знания боевых искусств, ловкость"},
+    "description": "по популярности человек-летучая мышь может сравниться только с Суперменом. Его образ кажется очень мистическим и мрачным: черный костюм с развевающимся плащом, устрашающий Бэтмобиль, штаб-квартира в сырой пещере. Его биография настолько же темна, как и образ. В детстве у него на глазах убили родителей, и юный Брюс поклялся всеми силами защищать родной Готэм от преступности",
+    "rating": 0
+    },{
+    "name": "Супермен",
+    "image": "https://n1s1.hsmedia.ru/06/d3/73/06d37321618034ec5f2a65b09c8576e3/547x397_0xac120002_45567661540468871.jpg",
+    "features": {
+        "universe": "DC Comics",
+        "alterego": "Кларк Кент",
+        "career": "борец за справедливость",
+        "friends": "собака Крипто",
+        "superpower": "непробиваемость, суперсила, полет, самоисцеление, суперзрение и суперслух, классный костюм"},
+    "description": "полная противоположность своему противнику Бэтмену. Если Брюс Уэйн был простым человеком и стал героем, то Супермен героем родился, но вынужден был изображать выходца из бедной канзасской семьи. Последний представитель планеты Криптон был отправлен на Землю прямо перед тем, как его родина была уничтожена",
+    "rating": 0
+    },{
+    "name": "Чудо-женщина",
+    "image": "https://n1s1.hsmedia.ru/87/ed/c5/87edc525d8813c7b2899e04a4e562fe9/547x397_0xac120002_6444132261540468872.jpg",
+    "features": {
+        "universe": "DC Comics",
+        "alterego": "Диана Принс",
+        "career": "супергероиня, секретарь-референт",
+        "friends": "Лига Справедливости, Бэтмен, Супермен",
+        "superpower": "сверхчеловеческая сила искорость, выносливость, полет"},
+    "description": "пора бы разбавить эту мужскую вечеринку по-настоящему крутой девчонкой :) Принцесса-амозонка родилась на мистическом острове Темескира, расположенном в центре Бермудского треугольника, где пропадают самолеты. Свое настоящее имя — Диана — она получила в честь древнегреческой богини охоты, а суперспособности — от богини любви Афродиты. Растили героиню в исключительно женском обществе, поэтому Чудо-женщина часто появляется в культуре как символ феминизма",
+    "rating": 0
+}]`;
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            let superHero = JSON.parse(spH);
+
+// первичное отображение базы супергероев            
+            let heroInfo = "";
+            for (let hero of superHero) {
+                console.log(hero.rating);
+                heroInfo += `<div class='hero'>
+                <h2>${hero.name}</h2>
+                <div class="title" id="rate">&#9734;&#9734;&#9734; Рейтинг: ${hero.rating}/10</div>
+                <img src="${hero.image}" width="250px" height="170px">
+                <div class="title">Вселенная: <span class="text">${hero.features.universe}</span></div>
+                <div class="title">Альтер-эго: <span class="text">${hero.features.alterego}</span></div>
+                <div class="title">Род деятельности: <span class="text">${hero.features.career}</span></div>
+                <div class="title">Друзья: <span class="text">${hero.features.friends}</span></div>
+                <div class="title">Суперсилы: <span class="text">${hero.features.superpower}</span></div>
+                <div class="title">Подробнее: <span class="text">${hero.description}</span></div>
+                </div>`
+            } 
+            document.getElementById('out').innerHTML = heroInfo;
+
+// задание рейтинга соответствующму супергерою               
+            let arr = [];
+            document.getElementById('save').addEventListener('click', () => {
+                document.getElementById('error').innerHTML = '';
+                arr[0] = document.getElementById('heroOption').value;
+                arr[1] = document.getElementById('status').value;
+            if ((arr[0] && arr[1] !== 0) && (arr[0] && arr[1] !== "")){
+                //for (let i=0; i<superHero.length; i++){
+                    // запись рейтинга соответствующму супергерою
+                    superHero[document.getElementById('heroOption').value].rating = document.getElementById('status').value;
+                    //console.log(arr[0],arr[1]);
+                    localStorage.setItem('rating',JSON.stringify(arr));
+                //}
+
+                // отображение актуального рейтинга
+            let heroInfo = "";
+            for (let hero of superHero) {
+                heroInfo += `<div class='hero'>
+                <h2>${hero.name}</h2>
+                <div class="title" id="rate">&#9734;&#9734;&#9734; Рейтинг: ${hero.rating}/10</div>
+                <img src="${hero.image}" width="250px" height="170px">
+                <div class="title">Вселенная: <span class="text">${hero.features.universe}</span></div>
+                <div class="title">Альтер-эго: <span class="text">${hero.features.alterego}</span></div>
+                <div class="title">Род деятельности: <span class="text">${hero.features.career}</span></div>
+                <div class="title">Друзья: <span class="text">${hero.features.friends}</span></div>
+                <div class="title">Суперсилы: <span class="text">${hero.features.superpower}</span></div>
+                <div class="title">Подробнее: <span class="text">${hero.description}</span></div>
+                </div>`
+            } 
+            document.getElementById('out').innerHTML = heroInfo;
+        
+        } else {
+// сообщение об ошибке, если не выбран супергерой и/или не задан рейтинг
+            document.getElementById('error').innerHTML = 'Выбери супергероя и задай рейтинг';
+            };
+        });
+    });
+    </script>
+</body>
+</html>

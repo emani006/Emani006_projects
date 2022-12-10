@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .enter {
+            display: grid;
+            grid-template-columns: 300px;
+            grid-template-rows: 30px 40px 30px 40px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+        input:required:valid {
+            background-color: bisque;
+            font-size: 14px;
+        }
+        ::placeholder{
+            font-style: italic;;
+        }
+    </style>
+</head>
+<body>
+    <div class="enter">
+        <label for="note">Заметки для меня любимой</label>
+        <input id="note" placeholder="enter your notes here" required>
+        <div id="error"></div>
+        <button id="add">ADD NOTE</button>
+    </div>
+    <script>
+        let array = [];
+
+        document.getElementById('add').addEventListener('click',() => {
+            let note = document.getElementById('note').value;
+            
+            if (note !== '') {
+                array.push(note);
+                localStorage.setItem('notes', JSON.stringify(array));
+            } else {
+                document.querySelector('#error').innerHTML = 'Please enter a note';
+                document.getElementById('note').style.backgroundColor = 'lightpink';
+            }
+            document.getElementById('note').value = '';
+        });
+    </script>
+</body>
+</html>

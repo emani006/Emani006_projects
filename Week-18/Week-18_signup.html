@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP</title>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 600px;
+            grid-template-rows: 1fr 80px 50px 50px 50px;
+            justify-items: center;
+        }
+        header {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 40px 40px;
+            width: 600px;
+            justify-items: center;
+            align-items: center;
+            color: black;
+            background-color: orange;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .signupform {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(5,1fr);
+            width: 100%;
+            justify-items: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .createbutton {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            width: 100%;
+            height: 50px;
+            justify-items: center;
+            align-items: center;
+            color: rgb(86, 85, 85);
+            background-color: lightgrey;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 18px;
+        }
+        .cursor{
+            cursor: pointer;
+            background-color: yellowgreen;
+        }
+        .footer {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 10px;
+            margin: 10px 0 0 10px;
+        }
+        .yes {
+            display: grid;
+            grid-template-columns: 35px 1fr;
+            align-items: center;
+            justify-self: left;
+            text-decoration: none;
+        }
+        input:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+        input {
+            display: inline-block;
+            width: 400px;
+            height: 20px;
+            padding: 15px;
+            margin: 5px 0 15px 0;
+            border: 1px solid black;
+            border-radius: 10px;
+            background: #f1f1f1;
+            font-size: 14px;
+        }
+        
+        input:required:valid {
+            background-color: rgb(243, 242, 179);
+        }
+        #terms {
+            color: black;
+            color: rgb(251, 72, 81)
+        }
+    </style>
+</head>
+<body>
+<header>
+    <p>CREATE YOUR ACCOUNT</p>
+    <p>Please fill in the form to create an account.</p>
+</header>
+<main>
+    <div class="container">
+        <div class="signupform">
+            <div class="firstname">
+                <input id="first" type="text" placeholder="Enter your first name" required>
+            </div>
+            <div class="lastname">
+                <input id="second" type="text" placeholder="Enter your last name" required>
+            </div>
+            <div class="email">
+                <input id="email" type="email" placeholder="Enter your e-mail" required>
+                <div id="out-email"></div>
+            </div>
+            <div class="password">
+                <input id="userpass" type="password" minlength="6" maxlength="15" placeholder="Enter your password (min 6 symbols, max 15 symbols)" required>
+                <div id="out-pass"></div>
+            </div>
+            <div class="confirmpassword">
+                <input id="confpass" type="password" onchange="equalPassword()" minlength="6" maxlength="15" placeholder="Confirm your password" required>
+            </div>
+        </div>
+        <div class="yes">
+            <input id="yes" type="checkbox" required>
+            <p>Yes, I want to receive discounts, loyalty offers, and other updates.</p>
+        </div>
+            <button class="createbutton" type="submit" onclick="ok()" id="create" disabled>
+                Create account
+            </button>
+        <div class="footer">
+            By clicking on "Create account", you agree to our 
+            <a href="https://www.pyszne.pl/regulamin" id="terms">terms of use, terms of use of point collection and privacy statement.</a>        
+        </div>
+    </div>
+</main>
+    <script>
+
+        let firstReg = /\w/gi;
+        let arr1 = [];
+        let testArray = [];
+        let x;
+/*
+        document.getElementById('first').addEventListener('change', () => {
+            let f = document.getElementById('first').value;
+            arr1 = f.split('');
+            console.log(arr1);
+            for (let i = 0; i < arr.length; i++){
+                if (firstReg.test(arr[i])) {
+                    console.log(firstReg.test(arr1[i]));
+                    testArray.push(arr1[i].test(firstReg));
+                }
+            }
+            console.log(testArray);
+            testArray = [];
+        });
+*/
+        let arr = [];
+        const regFirst = /^[A-Za-zА-Яа-я]/g;
+
+    //FIRST name check and change
+            document.querySelector('.firstname').onchange = () => {
+            let str = document.getElementById('first').value.trim().toLowerCase();
+            arr = str.split('');
+            let c;
+
+            // checking, if there is no digits or symbols in name
+            // and changing the name to normal form
+            let setArr = [];
+                for (let i=0; i<arr.length; i++){
+                    c = arr[i].match(regFirst);
+                    if (c !== null){
+                        setArr.push(arr[i]);
+                    }
+                }
+            setArr[0] = setArr[0].toUpperCase();
+            document.getElementById('first').value = setArr.join('');
+            arr = [];
+            }
+
+    //LAST name check and change
+            const regLast = /^[A-Za-zА-Яа-я]|^[\-{1}]|^[A-Za-zА-Яа-я]/g;
+            //const dash = '-';
+
+            document.querySelector('.lastname').onchange = () => {
+            let str = document.getElementById('second').value.trim().toLowerCase();
+            arr = str.split('');
+            let c;
+
+            // checking, if there is no digits or symbols in name
+            // and changing the name to normal form
+            let setArr = [];
+                for (let i=0; i<arr.length; i++){
+                    c = arr[i].match(regLast);
+                    if (c !== null){
+                            setArr.push(arr[i]);
+                    }
+                }
+            setArr[0] = setArr[0].toUpperCase();
+            document.getElementById('second').value = setArr.join('');
+            arr = [];
+            }
+
+    // checking if userpassword entered or isn't short/long
+        document.getElementById('userpass').addEventListener('change', () => {
+            var textPass = document.getElementById("userpass").value;
+
+            if (textPass ===''){
+                alert('Enter password')
+            }
+            if (textPass.length<6){
+                alert('Too short password');
+                document.getElementById("userpass").value = '';
+            } else {
+                if (textPass.length>15){
+                    alert('Too long password');
+                    document.getElementById("userpass").value = '';
+                } else {
+                    return textPass;
+                }
+            }
+        });
+
+    // if userpassword equals confirm password
+        function equalPassword(){
+            let pas = document.getElementById("userpass").value;
+            let con = document.getElementById("confpass").value;
+
+            if (pas !== con) {
+                document.getElementById("out-pass").innerHTML = 'Password does not match';
+                //alert('Password does not match');
+                document.getElementById("userpass").value = '';
+                document.getElementById("confpass").value = '';
+            } else {
+                if (pas !== '' && con !== '') {
+                    document.getElementById("out-pass").innerHTML =  '';
+                    return true;
+                } else {
+                    document.getElementById("out-pass").innerHTML = 'Invalid password';
+                    //alert('Invalid password');
+                    return false;
+                }
+            }
+        }
+
+    //E-MAIL validation
+        emailReg = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,4})$/iu;
+
+        document.getElementById('email').addEventListener('change', () => {
+            let em = document.getElementById("email").value;
+
+            if (em ===''){
+                document.getElementById("out-email").innerHTML = 'Enter your e-mail';
+                //alert('Enter your e-mail');
+            } 
+
+            if (em.match(emailReg) == null) {
+                document.getElementById("email").style.backgroundColor = 'rgb(251, 72, 81)';
+                document.getElementById("out-email").innerHTML = 'Your e-mail does not look like e-mail';
+                //alert("Your e-mail doesn't look like e-mail");
+                } else {
+                    document.getElementById("email").style.backgroundColor = 'rgb(243, 242, 179)';
+                    document.getElementById("out-email").innerHTML =  '';
+                }
+        });
+
+        let checkBox = document.getElementById("yes");
+        let buttonSubmit = document.querySelector(".createbutton");
+
+        checkBox.addEventListener("change", () => {
+            if (checkBox.checked) {
+                buttonSubmit.removeAttribute("disabled");
+                buttonSubmit.classList.add('cursor');
+            } else {
+                buttonSubmit.setAttribute("disabled", true);
+                buttonSubmit.classList.remove('cursor');
+            }
+        });
+
+        let p = document.getElementById("userpass").value;
+        let c = document.getElementById("confpass").value;
+
+        function ok(){
+            let x = equalPassword(p,c)
+            let a = document.getElementById("first").value;
+            let b = document.getElementById("second").value;
+            let e = document.getElementById("email").value;
+
+            if (a !=='' && b !=='' && e !=='' && x == true){
+                alert('Welcome ' + a + ' ' + b);
+            } else {
+                if (a === '') {
+                    alert('First name?');
+                } else {
+                    if (b === '') {
+                        alert('Second name?');
+                        } else {
+                            if (e === '') {
+                                alert('E-mail?');
+                            }
+                        }
+                    } 
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/1076/1076928.png" type="image/png">
+    <style>
+        input:invalid:required {
+            background-color: rgb(228, 226, 226);
+            border-color: red;
+        }
+        input:valid:required {
+            background-color:azure;
+            border-color:  black;
+        }
+
+    </style>
+</head>
+    <header>
+        <h2>АНКЕТА ДЛЯ ОБЛАДАТЕЛЕЙ КОТИКОВ</h2>
+    </header>
+    <main>
+        <form id="dataForm" action="https://httpbin.org/post">
+            <fieldset>
+                    <legend><h2>Данные о владельце:</h2></legend>
+                <p>
+                    <label for="ownername">Имя владельца: &#9658;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input name="ownername" type="text" placeholder="Имя владельца" id="ownername" required/>
+                </p>
+                <p>
+                    <label for="ownercontact">Контакт владельца: &#9658;&nbsp;</label>
+                    <input name="ownercontact" type="text" placeholder="Контакт владельца" id="ownercontact" required/>
+                </p>
+            </fieldset><br/>
+            <fieldset>
+                <legend><h2>Данные о питомце:</h2></legend>
+                <p>
+                    <label for="catname">Кличка питомца: &#9658;&nbsp;&nbsp;&nbsp;</label>
+                    <input name="catname" type="text" placeholder="Кличка питомца" size=15 id="catname" required/>
+                </p>
+            </fieldset>
+            <br/>
+            <p><button type="button" id="add">СОХРАНИТЬ</button></p>
+            <br/>
+            <br/>
+        </form>
+    </main>
+    <footer>
+        Catinfo inc. &copy; All rights reserved.
+    </footer>
+
+    <script>
+        add.onclick = function (event) {
+            event.preventDefault();
+
+        let catInfo = {
+            name : document.getElementById('ownername').value,
+            contact : document.getElementById('ownercontact').value,
+            nickname : document.getElementById('catname').value
+        }
+        console.log(catInfo);
+
+        const form = document.querySelector('form');
+        //const form = document.getElementById('dataForm');
+
+// отправка данных формы POST запросом
+    fetch("https://httpbin.org/post",{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'multipart/form-data;charset=utf-8'
+        },
+        body: new FormData(form)
+    })
+    .then((response) => {
+        return response.json();
+    })
+    .then((response) => {
+        console.log(response);
+    })
+    .catch(error => console.log(error))
+}
+
+    </script>
+</body>
+</html>

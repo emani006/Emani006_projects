@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam-filter with local storage</title>
+    <style>
+.container {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    background: rgb(195, 195, 239);
+    align-items: center;
+    border-color: rgb(106, 106, 235);
+    align-items: center;
+}
+form {
+    width: 94%;
+}
+#chat {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+#author {
+    width: 86%;
+    height: 3vh;
+    border-radius: 5px;
+    text-align:start;
+    font-size: 1rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+    background: white;
+    font-size: medium;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#avatar {
+    width: 86%;
+    height: 3vh;
+    border-radius: 5px;
+    text-align:start;
+    font-size: 1rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+    background: white;
+    font-size: medium;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#comment {
+    width: 86%;
+    height: 30vh;
+    border-radius: 5px;
+    text-align:start;
+    font-size: 1rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+    margin-top: 2vh;
+    margin-bottom: 6vh;
+    background: white;
+    font-size: medium;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#button {
+    width: 92%;
+    margin-bottom: 1vh;
+    margin-top: 2vh;
+    height: 7vh;
+    color: white;
+    background: rgb(106, 106, 235);
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+.clear {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    width: 92%;
+}
+#button_clear {
+    width: 30%;
+    margin-bottom: 0vh;
+    margin-top: 0vh;
+    height: 5vh;
+    color: white;
+    background: rgb(106, 106, 235);
+    border-radius: 5px;
+    font-size: 0.7rem;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>Chat</h1>
+<div id="chat"></div>
+<div id="image"></div>
+<!--<img id="avatarPhoto" src="`${document.getElementById('avatar').value}`" width="120" height="120"/>
+<img id="image" src="https://ava-24.com/_ph/129/650128175.jpg" width="120" height="120"/>-->
+<!--<img id="avatarPhoto" src="`${localStorage.getItem('avatarImg');}`" width="120" height="120"/>-->
+<form novalidate>
+    <div><label for="author" class = "author_name">Name:</label></div>
+    <div><input type="text" name="author" id="author" value="" class="inputs"/></div>
+    <div><label for="avatar">Avatar link:</label></div>
+    <div><input type="text" name="avatar" id="avatar" value="" class="inputs"></div>
+    <div><label for="comment">Message:</label></div>
+    <div><textarea name="comment" id="comment" class="inputs"></textarea></div>
+    <div>
+        <button type="button" id="button" onclick="checkSpam();">Send</button>
+    </div>
+    <div class="clear">
+        <button type="button" id="button_clear" onclick="localStorage.removeItem('name');name.value=''">Clear Name</button>
+        <button type="button" id="button_clear" onclick="localStorage.removeItem('avatarImg');avatar.value=''">Clear Avatar</button>
+    </div>
+</form>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    let name;
+    let avatarImg;
+        if (name !== null) {
+            name = document.getElementById("author").value;
+            localStorage.getItem('name');
+        }
+        if (avatar !== null) {
+            avatarImg = document.getElementById("avatar").value;
+            localStorage.getItem('avatarImg');
+            }
+        });
+        button = document.querySelector('button');
+
+    function checkSpam () {
+        let str = document.getElementById("comment").value;
+        let strOne = str.replace(/viagra|виагра|виагру|виагрой|xxx/gi, '***');
+        document.getElementById("comment").value = strOne;
+        checkMessage();
+    }
+
+    function checkMessage() {
+        let author = document.getElementById("author").value;
+        let comment = document.getElementById("comment").value;
+        let avatarImg = document.getElementById('avatar').value;
+        if(localStorage.getItem('name')==null) {
+        localStorage.setItem('name', author);
+        }
+        if(localStorage.getItem('avatar')==null) {
+        localStorage.setItem('avatarImg', avatarImg);
+        }
+        sendMessage(author, comment, avatarImg);
+
+        // очищаем поля ввода для следующего комментария
+        document.getElementById("author").value = '';
+        document.getElementById("avatar").value = '';
+        document.getElementById("comment").value = '';
+    };
+
+    function sendMessage(author, comment, avatarImg) {
+        document.querySelector('#chat').innerHTML += "<img src='" + avatarImg + "' width='50' height='50'>" + ` ` +  
+                `<span class='author'>${author}:</span>` + ` ` + `<span>${comment}</span>` + `</br>`;
+    }
+</script>
+</body>
+</html>

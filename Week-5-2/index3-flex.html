@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .table {
+        width: 400px;
+        height: 125px;
+        border: 1px solid black; 
+    }
+    .tr_row1 {
+        display: flex;
+        flex-direction: row;
+        height: 28%;
+    } 
+    .tr_row2 {
+        display: flex;
+        height: 36%;
+    } 
+    .tr_row3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 32%;
+        border: 1px solid black;
+        margin: 1px 2px 1px 1px;
+    }
+    .col1 {
+        display: flex;
+        flex-direction: column;
+        width: 33%;
+        border: 1px solid black;
+        margin: 1px 2px 1px 1px;
+    }
+    .col11 {
+        display: flex;
+        flex-direction: column;
+        width: 33%;
+        margin: 1px 0 1px 0;
+    }
+    .col12 {
+        display: flex;
+        flex-direction: column;
+        width: 33%;
+        margin: 1px 1px 1px 0;
+    }
+    .col2 {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        border: 1px solid black;
+        margin: 1px;
+    }
+    #col_pad {
+        padding-left: 5px;
+        justify-content: center;
+    }
+    #row_pad {
+        justify-content: center;
+        align-items: center;
+    }
+    #cell {
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 24px;
+    }
+</style>
+<body>
+    <main class="table">
+            <div class="tr_row1"> 
+                <div class="col1" id="row_pad">Column 1</div>
+                <div class="col1" id="row_pad">Column 2</div>
+                <div class="col1" id="row_pad">Column 3</div>
+            </div>
+            <div class="tr_row2">
+                <div class="col1" id="row_pad">Row 1 Cell 1</div>
+                <div class="col11">
+                    <div class="col2" id="row_pad">Row 1 Cell 2</div>
+                    <div class="col2" id="row_pad">Row 2 Cell 2</div>
+                </div>
+                <div class="col12">
+                    <div class="col2" id="row_pad">Row 1 Cell 3</div>
+                    <div class="col2" id="row_pad">Row 2 Cell 3</div>
+                </div>
+            </div>
+            <div class="tr_row3">
+                <div id="cell">Row 3 Cell 1</div>
+            </div>
+    </main>
+</body>
+</html>

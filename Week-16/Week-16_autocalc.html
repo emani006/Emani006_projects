@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+        margin-left: 20px;
+    }
+    #model, #body, #mileage {
+        border: 2px solid grey;
+        background-color: rgb(233, 228, 228);
+        width: 170px;
+        font-size: 11px;
+        margin-bottom: 15px;
+    }
+    .engine, .fuel {
+        margin-left: 170px;
+    }
+    button {
+            width: 150px;
+            height: 45px;
+            font-size: 18px;
+            background: orange;
+            margin-bottom: 20px;
+        }
+    .result {
+        font-size: 20px;
+        padding-bottom: 30px;
+    }
+    </style>
+</head>
+<body>
+    <h2>Car cost calculator</h2>
+    <section>
+        <label>Model: </label>
+        <select id="model" name="car_brand"> 
+            <option value="">CHOOSE YOUR BRAND</option>
+            <option id="skoda" value="100">Skoda</option>
+            <option id="fiat" value="200">Fiat</option>
+            <option id="honda" value="300">Honda</option>
+            <option id="audi" value="400">Audi</option>
+            <option id="mercedes" value="500">Mercedes</option>
+            <option id="toyota" value="600">Toyota</option>
+            <option id="volvo" value="700">Volvo</option>
+            <option id="tesla" value="800">Tesla</option>
+        </select>
+    </section>
+    <section>
+        <label>Engine size (cm3):</label>
+        <p><input id="e1" class="engine" name="engine" type="radio" value="100" checked> 1.2</p>
+        <p><input id="e2" class="engine" name="engine" type="radio" value="150"> 1.3</p>
+        <p><input id="e3" class="engine" name="engine" type="radio" value="200"> 1.4</p>
+        <p><input id="e4" class="engine" name="engine" type="radio" value="250"> 1.5</p>
+        <p><input id="e5" class="engine" name="engine" type="radio" value="300"> 2.0</p>
+        <p><input id="e6" class="engine" name="engine" type="radio" value="350"> 2.1</p>
+        <p><input id="e7" class="engine" name="engine" type="radio" value="400"> 2.2</p>
+    </section>    
+    <section>
+            <label>Body type: </label>
+            <select id="body" name="body_type"> 
+                <option value="">CHOOSE CAR BODY TYPE</option>
+                <option name="op1" id="hatch" value="450">Hatchback</option>
+                <option name="op2" id="sedan" value="500">Sedan</option>
+                <option name="op3" id="station" value="550">Station wagon</option>
+                <option name="op4" id="combi" value="600">Combi</option>
+            </select>
+    </section>    
+    <section>    
+        <label>Fuel type: </label>
+            <p><input id="f1" class="fuel" type="radio" name="fuel" value="650" checked> Petrol</p>
+            <p><input id="f2" class="fuel" type="radio" name="fuel" value="700"> Diesel</p>
+            <p><input id="f3" class="fuel" type="radio" name="fuel" value="750"> Gas</p>
+            <p><input id="f4" class="fuel" type="radio" name="fuel" value="800"> Hybrid</p>
+            <p><input id="f5" class="fuel" type="radio" name="fuel" value="850"> Electric</p>
+    </section>
+    <p>Mileage: <input id="mileage" type="number" min="1000" max="1000000" step="1000" placeholder="ENTER MILEAGE (km)"></p>
+    <section>
+        <label>Car condition: </label>
+            <p><input id="check1" type="checkbox" name="fuel" value="900"> Good technical condition;</p>
+            <p><input id="check2" type="checkbox" name="fuel" value="950"> Original paint</p>
+            <p><input id="check3" type="checkbox" name="fuel" value="1000"> No external damage and no damage to the interior</p>
+            <p><input id="check4" type="checkbox" name="fuel" value="1050"> The car has never been rented out, not used for private or commercial transportation</p>
+    </section>
+    <button id="submit" type="submit">Calculate</button>
+    <div class="result" id="output"></div>
+
+    <script>
+            document.getElementById('submit').addEventListener('click',() => {
+                let i = 0;
+                let sum = 0;
+                let cost = 0;
+
+                let modelName = document.getElementById('model').value;
+
+                let a = 0;
+                let engineVolume = [];
+                while (++a <=7){
+                    if (document.getElementById('e'+a).checked){
+                        engineVolume.push(document.getElementById('e'+a).value);
+                    }
+                }
+
+                let bodyType = document.getElementById('body').value;
+
+                let c = 0;
+                let fuelType= [];
+                while (++c <=5){
+                    if (document.getElementById('f'+c).checked){
+                        fuelType.push(document.getElementById('f'+c).value);
+                    }
+                }
+
+                let b = 0;
+                let carStatus = [];
+                while (++b <=4){
+                    if (document.getElementById('check'+b).checked){
+                        carStatus.push(document.getElementById('check'+b).value);
+                    }
+                }
+                for(b=0;b < carStatus.length; b++){
+                    sum += +carStatus[i];
+                }
+
+                let Miles = document.getElementById('mileage').value;
+                
+                cost = +modelName + +engineVolume + +fuelType + +bodyType + +sum + +Miles;
+                document.getElementById("output").innerHTML = cost + ' Euro';
+        })
+    </script>
+</body>
+</html>

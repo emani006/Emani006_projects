@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELLO</title>
+
+    <style type="text/css">
+        button { 
+            border: none;
+            width: 200px;
+            height: 50px;
+            border-radius: 7px;
+            background: yellowgreen;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: white;
+        }
+        button:hover { 
+            background: #ff6600;
+        } 
+
+        .button__place {
+            display: flex;
+            height: 100vh;
+            justify-content: start;
+            align-items: start;
+        }
+    </style>
+</head>
+<body>
+    <div class="button__place">
+        <button onclick="showMessage()">Enter your name</button>
+    </div>
+    
+    <script>
+
+        function showMessage() {
+            let yourName = prompt('Would you please name yourself?','');
+
+            if (yourName == null) {
+                alert('We were trying to be polite. Bye-bye, Mystery Guest!');
+            }
+
+            if (yourName == '') {
+                showAlt();
+            }
+            else {
+                if (yourName != null) {
+                    alert(`Hello, ${yourName}!`);
+                }
+                }
+        }
+
+        function showAlt() { 
+            let altName;
+            
+                do {
+                    altName = prompt('Last chance to enter your name','');
+
+                    if (altName != ''){
+                        continue;
+                    }
+                } while (altName == '')
+
+                if (altName == null) {
+                alert('We were trying to be polite. Bye-bye, Mystery Guest!');
+                }
+                else {
+                    alert(`Have a nice day, ${altName}!`);
+                }
+        }
+    </script>
+</body>
+</html>

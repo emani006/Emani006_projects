@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .table, .td, tr {
+        width: 350px;
+        border: 1px solid black; 
+    }
+    .tr {
+        display: flex;
+    }
+    .td {
+        display: flex;
+        padding: 7px;
+    }
+    #first {
+        justify-content: center;
+    }
+    
+    #second {
+        padding-top: 10px;
+        border-bottom: none;
+    }
+    
+    #out {
+        border-top: none;
+    }
+    .cell_colspan {
+        padding: 7px;
+    }
+</style>
+<body>
+    <main class="table">
+        <div class="table">
+            <div class="tr"> 
+                <div class="td" id="first">Column 1</div>
+                <div class="td" id="first">Column 2</div>
+                <div class="td" id="first">Column 3</div>
+            </div>
+            <div class="tr">
+                <div class="td" id="second">Row 1 Cell 1</div>
+                <div class="td">Row 1 Cell 1</div>
+                <div class="td">Row 2 Cell 2</div>
+            </div>
+            <div class="tr">
+                <div class="td" id="out"></div>
+                <div class="td">Row 2 Cell 3</div>
+                <div class="td">Row 2 Cell 3</div>
+            </div>
+            <div class="table">
+                <div class="tr">
+                    <div class="cell_colspan">Row 3 Cell 1</div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

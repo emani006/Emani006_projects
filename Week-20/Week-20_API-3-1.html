@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 18px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h1{
+            text-align: center;
+        }
+        .data_block {
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            grid-template-rows: 1fr;
+            align-items: center;
+            background-color:aquamarine;
+        }
+        .text{
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>FREE ADVICE OF THE DAY</h1>
+    <div class="data_block">
+        <span class="id"></span>
+        <span class="text"></span>    
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            getAdvice();
+        });
+
+        function getAdvice(){
+            fetch('https://api.adviceslip.com/advice')
+                .then (response => response.json())
+                .then (advice => {
+                    console.log(advice);
+                    document.querySelector('.id').innerHTML = advice.slip.id;
+                    document.querySelector('.text').innerHTML = advice.slip.advice;
+                })
+                .catch(error => console.log(error))
+        }
+    </script>
+</body>
+</html>

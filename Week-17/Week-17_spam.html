@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body, textarea, button {
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 16px;
+    }
+    /*
+    .insideout {
+        width: 80vw;
+        height: 50vh;
+    }
+    */
+    button {
+            width: 520px;
+            height: 50px;
+            font-weight: bold;
+            color: black;
+            background-color: orange;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+    #add {
+        width: 100vw;
+        height: 50vh;
+    }
+    .block {
+        display: grid;
+        grid-template-columns: 520px;
+        grid-template-rows: 200px 50px;
+        justify-content:right;
+    }
+    </style>
+</head>
+<body>
+    <div id="add"></div>
+<div class="block">
+    <textarea id="comment" rows="10" cols="50" placeholder="enter your comments"></textarea>
+    <button id="send">SEND</button>
+</div>
+    <script>
+        const regV = /viagra/gi;
+        const regX = /[x]{3,}/gi;
+        const subst = '***';
+        let arrayCom = [];  
+        let arr = [];
+        let arrayContainer = [];
+
+        document.getElementById('send').addEventListener('click',() => {
+            let str = document.getElementById('comment').value;
+
+            arr = str.split(' ');
+            for (let i=0; i<arr.length; i++){
+                    if (arr[i] !== '') {
+                        arrayCom.push(arr[i]);
+                    }
+                }
+
+            for (let i=0; i<arrayCom.length; i++){
+                    if (arrayCom[i].match(regV) || arrayCom[i].match(regX)) {
+                        arrayCom[i] = subst;
+                    }
+                }
+            arrayContainer.push(arrayCom);
+
+            
+            let div = document.createElement('div');
+            div.className = 'out';
+            document.getElementById('add').append(div);
+            div.innerHTML = arrayCom.join(' ');
+
+            //document.getElementById('out').innerHTML = arrayCom.join(' ');
+            document.getElementById('comment').value = '';
+            arrayCom = [];
+        })
+
+    </script>
+</body>
+</html>

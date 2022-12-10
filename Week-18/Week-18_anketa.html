@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/1076/1076928.png" type="image/png">
+    <style>
+        input:invalid:required {
+            background-color: rgb(228, 226, 226);
+            border-color: red;
+        }
+        input:valid:required {
+            background-color:azure;
+            border-color:  black;
+        }
+
+    </style>
+</head>
+    <header>
+        <h2>АНКЕТА ДЛЯ ЛЮБИТЕЛЕЙ И ОБЛАДАТЕЛЕЙ КОТИКОВ</h2>
+        <article>
+            <h4>Вышли нам информацию о себе и своем питомце 
+                и получи подарок от нашего спонсора,<br/>
+                производителя товаров для кошек 
+                "<a href=https://www.petshop.ru/catalog/cats>Petshop</a>", 
+                подарочный сертификат на сумму 1000 руб. 
+            </h4>
+        </article>
+    </header>
+    <main>
+        <form id="data">
+            <fieldset>
+                    <legend><h2>Данные о владельце:</h2></legend>
+                <p>
+                    <label for="ownername">Имя владельца: &#9658;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="text" placeholder="Имя владельца" form="data" id="ownername" required/>
+                </p>
+                <p>
+                    <label for="ownercontact">Контакт владельца: &#9658;&nbsp;</label>
+                    <input type="text" placeholder="Контакт владельца" form="data" id="ownercontact" required/>
+                </p>
+            </fieldset><br/>
+            <fieldset>
+                <legend><h2>Данные о питомце:</h2></legend>
+                <p>
+                    <label for="catname">Кличка питомца: &#9658;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="text" placeholder="Кличка питомца" form="data" size=15 id="catname" required/>
+                </p>
+                <p>
+                        <input type="radio" name="s" value="m" checked="checked"/><span> Самец </span><br/>
+                        <input type="radio" name="s" value="f"/><span> Самка </span>
+                </p>
+                <p>
+                    <label>Порода питомца: </label>
+                            <select name="cat_breed" required> 
+                                <option selected disabled value="">Выберите породу</option>
+                                <option value="Option1">Сиамская</option>
+                                <option value="option2">Британская короткошерстная</option>
+                                <option value="option3">Британская вислоухая</option>
+                                <option value="option4">Бенгальская</option>
+                                <option value="option5">Мэйнкун</option>
+                                <option value="option6">Сфинкс</option>
+                            </select>
+                </p>
+                <p>
+                    
+                        <label>Чем питается <i>(возможен множественный выбор)</i>: </label><br/><br/>
+                        <input type="checkbox" name="food" value="1" />
+                        Сухой корм <br/>
+                        <input type="checkbox" name="food" value="2" />
+                        Влажный корм <br/>
+                        <input type="checkbox" name="food" value="3" />
+                        Натуральный корм <br/>
+                </p>
+                <br/>Дополнительная информация: <br/><textarea rows="5" cols="40" placeholder="дополнительная информация (optional)"></textarea>
+            </fieldset>
+            <br/>
+            <fieldset>
+                <legend><h3>Загрузить фото питомца: </h3></legend>
+                <p><i>(допустимые форматы .jpeg, .gif, .png)</i></p>
+                <p>
+                    <input type="file" name="foto" title="Загрузить фото питомца" accept="image/jpeg,image/png,image/gif"/>
+                </p>
+            </fieldset>
+            <p><button type="submit">СОХРАНИТЬ</button></p>
+            <br/>
+            <figure>
+                <figcaption>
+                    <h3>И еще немного котиков:</h3>
+                </figcaption>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ByH9LuSILxU" title="Cats in YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </figure>
+            <br/>
+        </form>
+    </main>
+    <address>
+        <p>&#9993;&nbsp;E-mail для связи: <a href="mailto:info@info.ru">info@info.ru</a></p>
+        <p>&#9742;&nbsp;Тел для связи: +7 495 234-56-78</p>
+    </address>
+    <footer>
+        Catinfo inc. &copy; All rights reserved.
+    </footer>
+</body>
+</html>

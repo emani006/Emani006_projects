@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .calculator {
+            display: grid;
+            width: 550px;
+            height: 400px;
+            grid-template-columns: 1fr;
+            grid-template-rows: 50px 40px 1fr;
+            border: 2px solid grey;
+            background-color: antiquewhite;
+            justify-items: center;
+            border-radius: 40px;
+            box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
+        }
+        h2 {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+            letter-spacing: 2px;
+            color:black;
+        }
+        p {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+            text-align: center;
+            font-size: 16px;
+            color:black;
+        }
+        input {
+            height: 35px;
+            padding-left: 5px;
+            font-size: 16px;
+        }
+        .row_operation {
+            display: grid;
+            grid-template-rows: 40px 40px 40px 50px;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .oper {
+            display: grid;
+            grid-template-columns: repeat(5,2.5rem);
+            grid-template-rows: 1fr;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        .button_operation {
+            width: 2rem;
+            height: 2rem;
+            font-weight: bold;
+            font-size: 15px;
+            background: rgb(255, 234, 0);
+            box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+            transition: .3s;
+        }
+        .button_operation:hover {
+            background: orange;
+            box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
+            color: white;
+            transform: translateY(-1px);
+            cursor: pointer;
+        }
+        .result {
+            display: grid;
+            height: 30px;
+            background-color: white;
+            font-size: 16px;
+            padding: 5px;
+            align-items: center;
+            text-align: center;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+        }
+        .resol {
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            grid-template-rows: 1fr;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>CALCULATOR</h2>
+        <p>To get a result, enter numbers and choose the operation:</p> 
+        <div class="row_operation">
+            <input id="firstNum" placeholder="number 1" type="text">
+            <div class="oper">
+                <p><button class="button_operation" onclick="op='+'" id="plus" type="button">+</button></p>
+                <p><button class="button_operation" onclick="op='-'" id="minus" type="button">-</button></p>
+                <p><button class="button_operation" onclick="op='*'" id="multy" type="button">*</button></p>
+                <p><button class="button_operation" onclick="op='/'" id="devide" type="button">/</button></p>
+                <p><button class="button_operation" onclick="reset()" id="reset" type="button">C</button></p>
+            </div>
+            <input id="secondNum" placeholder="number 2" type="text">
+            <div class="resol">
+                <button class="button_operation" id="res" onclick="operation()">=</button>
+                <span class="result" id="output">???</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        var op;
+        function operation() {
+            var result;
+            var num1 = Number(document.getElementById("firstNum").value);
+            var num2 = Number(document.getElementById("secondNum").value);
+
+            switch (op) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 != 0) {
+                result = num1 / num2;
+                } else {
+                    if (num2 == 0) {
+                        result = '???';
+                        alert('You can not devide by zero!');
+                        break;
+                        }
+                    }
+                break;
+            default:
+                result = 'Enter numbers first';
+            }
+            document.getElementById("output").innerHTML = result;
+        }
+        function reset(){
+            let num1 = document.getElementsByTagName ('input')[0].value = '';
+            let num2 = document.getElementsByTagName ('input')[1].value = '';
+            let result = document.getElementById("output").innerHTML = '???';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <title>MY FIRST CHARTS</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+    <!-- top menu -->
+        <header>
+            <div class="topmenu">
+                <div class="logo" id="timeline"></div>
+                <div class="menu_middle" id="text_style">
+                    <a class="menu_box" href="">Home</a>
+                    <a class="menu_box" href="">About us</a>
+                    <a class="menu_box" href="">Services</a>
+                </div>
+                <div id="text_style">
+                    <a href="" class="menu_right_bg">FIND IT NOW</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- information block -->
+        <main>
+            <div class="part1" id="text_style">
+                <div id="left">
+                    <div class="chartbox">
+                        <div class="topic">KM PER DAY TIME</div>
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                </div>
+                <div class="chartbox">
+                    <div class="topic">HOW MUCH TIME DO WE WALK?</div>
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div class="chartbox">
+                    <div class="topic">WALKING KM PER YEAR</div>
+                    <canvas id="myChart1"></canvas>
+                </div>
+                <div class="part11">
+                    <div id="left">
+                        <h3>Get the population of any city in the world</h3>
+                        <input type="text" id="cityName" placeholder="enter a city name">
+                        <button type="button" class="find_button" id="findInfo">FIND OUT NOW</button>
+                        <div id="out"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+<script src="bundle.js"></script>
+</body>
+</html>

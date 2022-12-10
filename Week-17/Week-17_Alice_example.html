@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <input id="newTask"> <button onclick="addTask()">add</button>
+    <script>
+        function finishTask(sender){
+            sender.parentElement.classList.toggle("done");
+        }
+
+        let lines = ["1","2","3"];
+
+        function addTask(){
+            let name = document.getElementById("newTask").value;
+            lines.push(name);
+            generateLine();
+            console.log(lines);
+        }
+
+        function generateLine(){
+            let optionString = "";
+            for (let line of lines){
+                optionString += `<div><input type='checkbox' onchange="finishTask(this)">
+                    <span>${line}</span></div>`
+            }
+            document.getElementById("container").innerHTML = optionString;
+        }
+
+        document.addEventListener("DOMContentLoaded", 
+        function (){
+            generateLine();
+        })
+    </script>
+</body>
+</html>

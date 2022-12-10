@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.grid {
+    display: grid;
+    height: 100vh;
+    grid-gap: 15px;
+    grid-template-areas:
+        "my-nav my-header my-header"
+        "my-nav my-main my-aside"
+        "my-nav my-section my-aside"
+        "my-footer my-footer my-footer";
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+.grid-init {
+    display: grid;
+    background-color: grey;
+    margin: 0;
+    padding: 15px;
+}
+.l-header {
+    grid-area: my-header;
+}
+.l-nav {
+    grid-area: my-nav;
+}
+.l-main {
+    grid-area: my-main;
+}
+.l-aside {
+    grid-area: my-aside;
+}
+.l-section {
+    grid-area: my-section;
+}
+.l-footer {
+    grid-area: my-footer;
+}
+.box-init {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.box {
+    display: grid;
+    background-color: blueviolet;
+    border-radius: 10px;
+    font-size: 14px;
+    color: white;
+}
+    </style>
+</head>
+<body>
+    <div class="grid-init grid">
+        <header class="box-init box l-header">HEADER</header>
+        <nav class="box-init box l-nav">NAV</nav>
+        <main class="box-init box l-main">MAIN</main>
+        <aside class="box-init box l-aside">ASIDE</aside>
+        <section class="box-init box l-section">SECTION</section>
+        <footer class="box-init box l-footer">FOOTER</footer>
+    </div>
+</body>
+</html>

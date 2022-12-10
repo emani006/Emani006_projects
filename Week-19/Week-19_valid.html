@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 250px;
+            height: 30px;
+            padding: 5px;
+            margin: 10px;
+            background-color:beige;
+            font-size: 12px;
+        }
+        button {
+            width: 80px;
+            height: 30px;
+            margin: 10px;
+            background-color:lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="email">
+        <input id="email" type="email" placeholder="Enter your e-mail">
+        <div id="out-email"></div>
+    </div>
+    <div class="tel">
+        <input id="phone" type="tel" placeholder="Enter your tel">
+        <div id="out-phone"></div>
+    </div>
+    <div class="date">
+        <input id="date" type="text" placeholder="Enter your date in format DD.MM.YYYY">
+        <div id="out-date"></div>
+    </div>
+    <button class="checking" type="submit" id="check">
+        CHECK
+    </button>
+
+    <script>
+        class Validator {
+            isMail(email){
+                //if (email !== '') {
+                    if (email.match(emailReg) !== null){
+                        return true;
+                    } else {
+                    return false;
+                }
+            }
+            isDomain (domain){
+                if (domain.includes('@') == true){
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            isDate (date){
+                if (date.match(dateReg) !== null){
+                        return true;
+                    } else {
+                    return false;
+                }
+
+            }
+            isPhone (phone){
+                if (phone.match(phoneReg) !== null){
+                        return true;
+                    } else {
+                    return false;
+                }
+            }
+        }
+
+// создание объекта класса Validator
+    let validator = new Validator();
+
+    //E-MAIL reg validation
+    emailReg = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,4})$/iu;
+    phoneReg = /\d/g;
+    dateReg = /\d\d\.\d\d\.\d\d\d\d/g;
+
+    document.getElementById('check').addEventListener('click', () => {
+    let em = document.getElementById('email').value;
+    let tel = document.getElementById('phone').value;
+    let date = document.getElementById('date').value;
+
+// проверка наличия и правильности ввода e-mail
+    if (!validator.isMail(em)) {
+        document.getElementById("email").style.backgroundColor = 'rgb(251, 72, 81)';
+        document.getElementById("out-email").innerHTML = 'Your e-mail does not look like e-mail';
+    } else {
+            document.getElementById("email").style.backgroundColor = 'rgb(243, 242, 179)';
+            document.getElementById("out-email").innerHTML =  '';
+        }
+        console.log(validator.isMail(em));
+
+// проверка наличия домена в e-mail
+    if (!validator.isDomain(em)) {
+        document.getElementById("email").style.backgroundColor = 'rgb(251, 72, 81)';
+        document.getElementById("out-email").innerHTML = 'No domain in e-mail';
+    } 
+        console.log(validator.isDomain(em));
+
+// проверка номера телефона на цифры
+    if (!validator.isPhone(tel)) {
+        document.getElementById("phone").style.backgroundColor = 'rgb(251, 72, 81)';
+        document.getElementById("out-phone").innerHTML = 'Tel number should contain digits only';
+    } else {
+            document.getElementById("phone").style.backgroundColor = 'rgb(243, 242, 179)';
+            document.getElementById("out-phone").innerHTML =  '';
+        }
+        console.log(validator.isPhone(tel));
+
+// проверка даты на соответствие формату
+    if (!validator.isDate(date)) {
+        document.getElementById("date").style.backgroundColor = 'rgb(251, 72, 81)';
+        document.getElementById("out-date").innerHTML = 'Date should contain digits only';
+    } else {
+            document.getElementById("date").style.backgroundColor = 'rgb(243, 242, 179)';
+            document.getElementById("out-date").innerHTML =  '';
+        }
+        console.log(validator.isDate(date));
+
+
+
+/* //  изначальная версия проверки e-mail
+    if (!Validator.isMail(em)) {
+        document.getElementById("email").style.backgroundColor = 'rgb(251, 72, 81)';
+        document.getElementById("out-email").innerHTML = 'Your e-mail does not look like e-mail';
+        } else {
+            document.getElementById("email").style.backgroundColor = 'rgb(243, 242, 179)';
+            document.getElementById("out-email").innerHTML =  '';
+        }
+        console.log(Validator.isMail(em));
+*/
+});
+
+    </script>
+</body>
+</html>

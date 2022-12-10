@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .calculator {
+            display: grid;
+            width: 400px;
+            height: 300px;
+            grid-template-columns: 1fr;
+            grid-template-rows: 50px 40px 1fr 40px 1fr;
+            border: 2px solid grey;
+            background-color: antiquewhite;
+            justify-items: center;
+            border-radius: 40px;
+            box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
+        }
+        h2 {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+            letter-spacing: 2px;
+            color:black;
+        }
+        p {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+            text-align: center;
+            font-size: 16px;
+            color:black;
+        }
+        .row_first {
+            display: grid;
+            grid-template-columns: 120px 120px;
+            grid-template-rows: 1fr;
+            margin-top: 1rem;
+            gap: 1.5rem;
+        }
+        .row_second {
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: 1fr;
+            gap: 1rem;
+        }
+        .button_operation {
+            width: 2rem;
+            height: 2rem;
+            font-weight: bold;
+            font-size: 15px;
+            background: rgb(255, 234, 0);
+            box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+            transition: .3s;
+        }
+        .button_operation:hover {
+            background: orange;
+            box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
+            color: white;
+            transform: translateY(-1px);
+            cursor: pointer;
+        }
+        .button_reset {
+            width: 3.5rem;
+            height: 2rem;
+            font-weight: bold;
+            font-size: 15px;
+            background: rgb(255, 234, 0);
+            box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+            transition: .3s;
+        }
+        .button_reset:hover {
+            background: orange;
+            box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
+            color: white;
+            transform: translateY(-1px);
+            cursor: pointer;
+        }
+        .button_enter {
+            display: inline-block;
+            width: 120px;
+            height: 50px;
+            line-height: 15px;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: #524f4e;
+            background: rgb(255, 234, 0);
+            box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+            transition: .3s;
+        }
+        .button_enter:hover {
+            background: orange;
+            box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
+            color: white;
+            transform: translateY(-1px);
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>CALCULATOR</h2>
+        <p>To get a result, enter numbers first:</p> 
+        <div class="row_first">
+            <button class="button_enter" onclick="first()" type="button">Enter number 1</button>
+            <button class="button_enter" onclick="second()" type="button">Enter number 2</button>
+        </div>
+        <p>Choose operation:</p> 
+        <div class="row_second">        
+            <p><button class="button_operation" onclick="calcPlus()" id="plus" type="button">+</button></p>
+            <p><button class="button_operation" onclick="calcMinus()" id="minus" type="button">-</button></p>
+            <p><button class="button_operation" onclick="calcMulty()" id="multy" type="button">*</button></p>
+            <p><button class="button_operation" onclick="calcDevide()" id="devide" type="button">/</button></p>
+            <p><button class="button_reset" onclick="reset()" id="reset" type="button">C</button></p>
+        </div>
+    </div>
+    <script>
+        let num1, num2;
+        num1 = 0;
+        num2 = 0;
+
+        function first() {
+            num1 = prompt('Enter the first number, please','');
+        }
+
+        function second() {
+            num2 = prompt('Enter the second number, please','');
+        }
+
+        function calcPlus() {
+            if (num1 != '' && num2 != '') {
+                alert(Number (num1) + Number (num2));
+            }
+            else {
+                alert('Enter number 1 and number 2, please');
+            }
+        }
+
+        function calcMinus() {
+            if (num1 != '' && num2 != '') {
+                alert(Number (num1) - Number (num2));
+            }
+            else {
+                alert('Enter number 1 and number 2, please');
+            }
+        }
+
+        function calcMulty() {
+            if (num1 != '' && num2 != '') {
+                alert(Number (num1) * Number (num2));
+            }
+            else {
+                alert('Enter number 1 and number 2, please');
+            }
+        }
+
+        function calcDevide() {
+            if (num1 != '' && num2 != '') {
+                alert(Number (num1) / Number (num2));
+            }
+            else {
+                alert('Enter number 1 and number 2, please');
+            }
+        }
+
+        function reset() {
+            num1 = 0;
+            num2 = 0;
+            alert('RESET');
+        }
+
+
+    </script>
+</body>
+</html>

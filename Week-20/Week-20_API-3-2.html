@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 18px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h1{
+            text-align: center;
+        }
+        .data_block {
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            grid-template-rows: 1fr;
+            align-items: center;
+            background-color:aquamarine;
+        }
+        .text{
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>How fresh air is?</h1>
+    <div class="data_block">
+        <span class="location"></span>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            getAdvice();
+        });
+
+        function getAdvice(){
+            fetch('https://openaqstatus.org/v2/locations')
+                .then (response => response.json())
+                .then (locations => {
+                    console.log(locations);
+                    document.querySelector('.location').innerHTML = locations;
+                    //document.querySelector('.text').innerHTML = advice.slip.advice;
+                })
+                .catch(error => console.log(error))
+        }
+    </script>
+</body>
+</html>

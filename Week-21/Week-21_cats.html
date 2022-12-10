@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/1076/1076928.png" type="image/png">
+    <style>
+        input:invalid:required {
+            background-color: rgb(228, 226, 226);
+            border-color: red;
+        }
+        input:valid:required {
+            background-color:azure;
+            border-color:  black;
+        }
+
+    </style>
+</head>
+    <header>
+        <h2>АНКЕТА ДЛЯ ОБЛАДАТЕЛЕЙ КОТИКОВ</h2>
+    </header>
+    <main>
+        <form id="dataForm">
+            <fieldset>
+                    <legend><h2>Данные о владельце:</h2></legend>
+                <p>
+                    <label for="ownername">Имя владельца: &#9658;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="text" placeholder="Имя владельца" form="dataForm" id="ownername" required/>
+                </p>
+                <p>
+                    <label for="ownercontact">Контакт владельца: &#9658;&nbsp;</label>
+                    <input type="text" placeholder="Контакт владельца" form="dataForm" id="ownercontact" required/>
+                </p>
+            </fieldset><br/>
+            <fieldset>
+                <legend><h2>Данные о питомце:</h2></legend>
+                <p>
+                    <label for="catname">Кличка питомца: &#9658;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="text" placeholder="Кличка питомца" form="dataForm" size=15 id="catname" required/>
+                </p>
+                <p>
+                        <input type="radio" name="gender" class="gender" value="male" form="dataForm" checked/><span> Самец </span><br/>
+                        <input type="radio" name="gender" class="gender" value="female"form="dataForm" /><span> Самочка </span>
+                </p>
+                <p>
+                    <label>Порода питомца: </label>
+                            <select id="breedChoice" name="cat_breed" form="dataForm" required> 
+                                <option selected disabled value="" >Выберите породу</option>
+                                <option value="Siam" >Сиамская</option>
+                                <option value="British shorthair" >Британская короткошерстная</option>
+                                <option value="British fold" >Британская вислоухая</option>
+                                <option value="Bengaly" >Бенгальская</option>
+                                <option value="Mainkun" >Мэйнкун</option>
+                                <option value="Sfinx" >Сфинкс</option>
+                            </select>
+                </p>
+                <p>
+                        <label>Предпочтительное питание <i>(возможен множественный выбор)</i>: </label><br/><br/>
+                        <input type="checkbox" class="food" name="food" form="dataForm" value="dry" />
+                        Сухой корм<br/>
+                        <input type="checkbox" class="food" name="food" form="dataForm" value="wet" />
+                        Влажный корм<br/>
+                        <input type="checkbox" class="food" name="food" form="dataForm" value="natural" />
+                        Натуральный корм<br/>
+                </p>
+            </fieldset>
+            <br/>
+            <p><button type="button" id="add">СОХРАНИТЬ</button></p>
+            <br/>
+            <br/>
+        </form>
+    </main>
+    <footer>
+        Catinfo inc. &copy; All rights reserved.
+    </footer>
+
+    <script>
+        class Cat {
+            constructor (name, contact, nickname, gender, breed, food){
+                this.name = name;//имя владельца
+                this.contact = contact;//контакт владельца
+                this.nickname = nickname;//кличка питомца
+                this.gender = gender;//пол питомца
+                this.breed = breed;//порода питомца
+                this.food = food;//предпочтительный корм
+            }
+        }
+        add.onclick = function (event) {
+            event.preventDefault();
+
+            let name = document.getElementById('ownername').value;
+            let contact = document.getElementById('ownercontact').value;
+            let nickname = document.getElementById('catname').value;
+
+// получение значения радиокнопки
+            let radio = document.querySelectorAll('.gender');
+            for(let i=0; i<radio.length; i++){
+                if (radio[i].checked){
+                    gender = radio[i].value;
+                    break;
+                }
+            }
+
+// получение значения из списка пород
+            let breed = document.getElementById('breedChoice').value;
+
+// получение значений из нескольких checkbox
+            let foodBoxes = [];
+            let a = document.querySelectorAll('.food');
+                for (let j=0; j<a.length; j++){
+                if (a[j].checked) {
+                        foodBoxes.push(a[j].value);
+                }}
+            food = foodBoxes.join(',');
+            //console.log(food);
+
+        let cat1 = new Cat(name, contact, nickname, gender, breed, food);
+        console.log(cat1);
+
+        let data = {
+            name : name,
+            contact : contact,
+            nickname : nickname,
+            gender : gender,
+            breed : breed,
+            food : food
+        }
+
+        console.log(data);
+// объявление 
+        const form = document.querySelector('form');
+
+// отправка данных формы POST запросом при помощи FormData
+    fetch("https://httpbin.org/post",{
+        method: 'POST',
+        body: new FormData(form)
+    })
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch(error => console.log(error))
+}
+
+    </script>
+</body>
+</html>

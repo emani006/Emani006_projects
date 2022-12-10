@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image_prop {
+            width: 200px;
+            height: 270px;
+        }
+        button {
+            width: 80px;
+            height: 30px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            margin: 0.5rem;
+            background-color: aquamarine;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <image src="1.jpg" id="myImage" class="image_prop">
+    <div>
+        <button id="back" onclick="klik()">Back</button>
+        <button id="forward" onclick="klik()">Forward</button>
+    </div>
+
+    <script>
+        let a = 2;
+
+/*
+        function klik(){
+            if(document.getElementById('back').value == '1'){
+                console.log(document.getElementById('back').value);
+                do {
+                    changeMy();
+                    a = a - 1;
+                    return a;
+                } while (a>0 && a<=4);
+                //a = 1;
+            }
+            if(document.getElementById('forward').value == '2'){
+                do {
+                    changeMy();
+                    a++;
+                    return a;
+                } while (a>0 && a<=4)
+                //a = 1;
+            }
+        }
+*/
+        function changeMy() {
+            let changeImage = document.getElementById('myImage');
+            if (a == 2) {
+                changeImage.src = "2.jpg";
+                a++;
+                return a;
+            } else {
+                if (a == 3) {
+                    changeImage.src = "3.jpg";
+                    a++;
+                    return a;
+                } else {
+                    if (a == 1) {
+                        changeImage.src = "1.jpg";
+                        a++;
+                        return a;
+                    } else {
+                            changeImage.src = "4.jpg";
+                            a = a - 3;
+                            return a;
+                            }
+                        }
+                    }
+        }
+    </script>
+</body>
+</html>

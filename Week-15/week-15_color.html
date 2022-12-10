@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label  {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 18px;
+        }
+        p  {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 24px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <label>Choose your background color: </label>
+    <select id="color" name="colour" required="required">
+        <option value="">Choose your background color</option>
+        <optgroup label="Light colors">
+            <option value="wheat" onclick="changeColor()">Wheat</option>
+            <option value="bisque" onclick="changeColor()">Bisque</option>
+            <option value="lightgrey" onclick="changeColor()">Lightgrey</option>
+        </optgroup>
+        <optgroup label="Dark colors">
+            <option value="blue" onclick="changeColor()">Blue</option>
+            <option value="blueviolet" onclick="changeColor()">Blueviolet</option>
+            <option value="maroon" onclick="changeColor()">Maroon</option>
+        </optgroup>
+        <optgroup label="Bright colors">
+            <option value="yellow" onclick="changeColor()">Yellow</option>
+            <option value="cyan" onclick="changeColor()">Cyan</option>
+            <option value="orange" onclick="changeColor()">Orange</option>
+        </optgroup>
+    </select>
+    
+    <p>MY VERY INTERESTING PAGE</p>
+
+    <script>
+    var colorChoice = document.getElementById('color');
+
+        colorChoice.addEventListener('change', changeColor);
+        
+    function changeColor(){  
+        var getValue = this.value;
+        switch (getValue) {
+                case 'wheat':
+                document.body.style.backgroundColor = 'wheat';
+                document.body.style.color = 'black';
+                    break;
+                case 'bisque':
+                document.body.style.backgroundColor = 'bisque';
+                document.body.style.color = 'black';
+                    break;
+                case 'lightgrey':
+                document.body.style.backgroundColor = 'lightgrey';
+                document.body.style.color = 'black';
+                    break;
+                case 'blue':
+                document.body.style.backgroundColor = 'blue';
+                document.body.style.color = 'yellow';
+                    break;
+                case 'blueviolet':
+                document.body.style.backgroundColor = 'blueviolet';
+                document.body.style.color = 'black';
+                    break;
+                case 'maroon': 
+                    document.body.style.backgroundColor = 'maroon';
+                    document.body.style.color = 'white';
+                    break;
+                case 'yellow':
+                document.body.style.backgroundColor= 'yellow';
+                document.body.style.color = 'black';
+                    break;
+                case 'cyan':
+                document.body.style.backgroundColor = 'cyan';
+                document.body.style.color = 'black';
+                    break;
+                case 'orange':
+                document.body.style.backgroundColor = 'orange';
+                document.body.style.color = 'black';
+                    break;
+                default: 
+                document.body.style.backgroundColor = 'white';
+                document.body.style.color = 'black';
+                }
+        }
+    </script>
+</body>
+</html>

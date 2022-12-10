@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style/cart.css">
+    <link rel="stylesheet" type="text/css" href="assets/style/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" />
+
+</head>
+
+<body>
+    <header>
+        <div>
+            <h3>Здесь будет хэдер</h3>
+        </div>
+    </header>
+    <main>
+        <div class="base">
+            <div class="block_picture">
+                <img class="picture" src="assets/images/rose.jpg">
+            </div>
+            <div class="block_info">
+                <div id="item-name" class="fonts"></div>
+                <div id="item-price" class="fonts"></div>
+
+<!--    выбора размера букета    -->
+                <div class="block_bukiet_size">
+                    <div class="fonts">Выберите размер букета</div>
+                    <button class="size-button">Стандарт</button>
+                    <button class="size-button">Маленький</button>
+                    <button class="size-button">Большой</button>
+                </div>
+                
+<!--    добавление упаковки    -->
+                <div class="block_pack">
+                    <div class="fonts">Добавить упаковку</div>
+                        <select id="add-option-list" name="decor-option-list">
+                            <option selected disabled value="">Выберите из списка</option>
+                            <option value="0">Без упаковки</option>
+                            <option value="10">Классическая + $10</option>
+                            <option value="15">Подарочная + $15</option>
+                            <option value="20">Крафтовая + $20</option>
+                        </select>
+                    </div>
+
+<!--  START - дополнительное оформление, подарки  -->
+                    <section class="add_decor">
+                    <!--<input type="checkbox" id="misc" class="add-out"><span class="fonts"> Добавить подарок</span>-->
+                        <input type="checkbox" id="misc" class="add-out"><label for="misc" class="fonts"> Добавить подарок</label>
+                    </section>
+                    <div class="add-image-out" id="add-image-out"></div>
+                    <div class="block_submit block_total_align">
+                        <span id="total-out"></span>
+                        <button type="button" class="delete_button">Удалить букет</button>
+                    </div>
+            </div>
+        </div>
+<!--  кнопки  -->
+        <div class="block_submit">
+            <div class="block_submit_align">
+                <button type="button" class="block_submit_button"> &lt;&lt; Вернуться назад</button>
+                <button type="submit" class="block_submit_button">Оформить заказ</button>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <h3>Здесь будет футер</h3>
+
+    </footer>
+
+    <script src="assets/add-decor.js"></script>
+    <script src="assets/decor-script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 18px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h1{
+            text-align: center;
+        }
+        .data_block {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            align-items: center;
+        }
+        .text{
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Art Institute of Chicago</h1>
+    <div class="data_block">
+        <div class="artist"></div>
+        <div class="title"></div>
+        <div class="out"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+                getGif();
+
+        });
+
+        function getGif(){
+            fetch('https://api.artic.edu/api/v1/artworks/129884')
+                .then (response => response.json())
+                .then (artworks => {
+                    console.log(artworks);
+                    document.querySelector('.artist').innerHTML = "Arist: " + artworks.data.artist_display;
+                    document.querySelector('.title').innerHTML = "Artwork title: " + artworks.data.title;
+                    document.querySelector('.out').innerHTML = "Credit line: " + artworks.data.credit_line;
+                })
+                .catch(error => console.log(error))
+    }
+    </script>
+</body>
+</html>

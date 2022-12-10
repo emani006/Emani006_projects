@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/styles/cart.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" />
+    <link rel="stylesheet" href="./assets/styles/index.css">
+
+</head>
+
+<body>
+    <header class="header" id="top">
+        <p class="header__phrase">Букеты на любой вкус</p>
+        <div class="header__items">
+            <a class="header__item_delivery" href="#delivery">Доставка</a>
+            <a class="header__item_payment" href="#payment">Оплата</a>
+            <a class="header__item_contact" href="#contact">Контакты</a>
+            <a class="header__item_basket" id="to-basket" href="cart.html">Корзина
+            <img class="header__item_logo-basket" src="assets/images/basket.png" alt="logo"/></a>
+        </div>
+        <div class="header__logo">
+            <img class="header__logo-img" id="logo" onclick="this.style.left='5px'" src="assets/images/logobutterfly.png" alt="logo"/>
+            <img class="header__logo-img" src="assets/images/Flower Shop.png" alt="logo"/>
+        </div>
+    </header>
+    <main>
+        <div class="base">
+            <div class="block_picture" id="item-image">
+                <!--<img class="picture" src="assets/images/rose.jpg">-->
+            </div>
+            <div class="block_info">
+                <div id="item-name" class="fonts"></div>
+                <div id="item-price" class="fonts"></div>
+
+                
+<!--    добавление упаковки    -->
+                <div class="block_pack">
+                    <div class="fonts">Добавить упаковку</div>
+                        <select id="add-option-list" name="decor-option-list">
+                            <option selected disabled value="">Выберите из списка</option>
+                            <option value="0">Без упаковки</option>
+                            <option value="10">Классическая + $10</option>
+                            <option value="15">Подарочная + $15</option>
+                            <option value="20">Крафтовая + $20</option>
+                        </select>
+                    </div>
+
+<!--  START - дополнительное оформление, подарки  -->
+                    <section class="add_decor">
+                    <!--<input type="checkbox" id="misc" class="add-out"><span class="fonts"> Добавить подарок</span>-->
+                        <input type="checkbox" id="misc" class="add-out"><label for="misc" class="fonts"> Добавить подарок</label>
+                    </section>
+                    <div class="add-image-out" id="add-image-out"></div>
+                    <div class="block_submit">
+                        <div class="block_total_align">
+                            <span class="fonts" id="total-out"></span>
+                                <button type="button" id="delete" class="delete_button">Удалить букет</button>
+                                <div id="delete-info"></div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+<!--  кнопки  -->
+        <div class="block_submit">
+            <div class="block_submit_align">
+                <button type="button" id="to-main-page" class="block_submit_button"> &larr;&nbsp; Вернуться в каталог</button>
+                <button type="submit" id="to-order-page" class="block_submit_button">Оформить заказ &nbsp;&rarr;</button>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer" id="end">
+            <div class="footer__logo">
+            <div><img class="footer__logo_img" src="assets/images/logobutterfly.png" alt="logo"/> </div>
+            <div><img class="footer__logo_img" src="assets/images/Flower Shop.png" alt="logo"/></div>
+        </div>
+    
+        <div class="footer__menu" >
+            <div class="footer__menu_name">Меню </div><br>
+            <div class="footer__menu_buketi" href="#buketi">Букеты</div>
+            <div class="footer__menu_korzini" href="#korzini">Корзины с цветами</div> 
+            <div class="footer__menu_rosi" href="#rosi">Розы</div> 
+            <div class="footer__menu_oplata" href="#oplata">Оплата</div> 
+            <div class="footer__menu_dostavka" href="#dostavka">Доставка</div>
+        </div> <br>
+    
+        <div class="footer__contact">
+            <div class="footer__contact_name" href="#contact">Контакты</div><br>
+            <div class="footer__contact_adres">Адрес:г.Прага,ул.Центральная,64</div>
+            <div class="footer__contact_time">Время работы: пн.-вс. с 9.00 до 18.00</div> <br>
+            <div class="footer__contact_tel">Телефон:+42 5845050</div>
+            <div class="footer__contact_email">email:flowershop@gmail.com</div> 
+        </div><br>
+    
+        <div class="footer__social">
+            <div class="footer__social_tofind">Можете нас найти</div><br>
+            <div> <img class="footer__social-img" src="assets/images/iconinstagram.png" alt="logo"/>
+            <img class="footer__social-img" src="assets/images/iconfacebook.png" alt="logo"/>
+            <img class="footer__social-img" src="assets/images/iconswhatsapp.png" alt="logo"/>
+            <img class="footer__social-img" src="assets/images/iconviber.png" alt="logo"/> </div><br> 
+            <div class="footer__copyright"> Copyright &copy; 2022 Flower Shop - All rights reserved</div> </div>
+        </div> 
+    </footer>
+
+    <script src="assets/add-decor.js"></script>
+    <script src="assets/decor-script.js"></script>
+
+</body>
+</html>

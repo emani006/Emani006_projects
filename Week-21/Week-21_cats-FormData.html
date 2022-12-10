@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/1076/1076928.png" type="image/png">
+    <style>
+        input:invalid:required {
+            background-color: rgb(228, 226, 226);
+            border-color: red;
+        }
+        input:valid:required {
+            background-color:azure;
+            border-color:  black;
+        }
+
+    </style>
+</head>
+    <header>
+        <h2>АНКЕТА ДЛЯ ОБЛАДАТЕЛЕЙ КОТИКОВ</h2>
+    </header>
+    <main>
+        <form id="dataForm">
+            <fieldset>
+                    <legend><h2>Данные о владельце:</h2></legend>
+                <p>
+                    <label for="ownername">Имя владельца: &#9658;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="text" placeholder="Имя владельца" form="dataForm" id="ownername" required/>
+                </p>
+                <p>
+                    <label for="ownercontact">Контакт владельца: &#9658;&nbsp;</label>
+                    <input type="text" placeholder="Контакт владельца" form="dataForm" id="ownercontact" required/>
+                </p>
+            </fieldset><br/>
+            <br/>
+            <p><button type="button" id="add">СОХРАНИТЬ</button></p>
+        </form>
+    </main>
+
+    <script>
+        add.onclick = function (event) {
+            event.preventDefault();
+
+            //let name = document.getElementById('ownername').value;
+            //let contact = document.getElementById('ownercontact').value;
+
+// объявление 
+        let formData = new FormData()
+            formData.append('name', document.getElementById('ownername').value);
+            formData.append('contact', document.getElementById('ownercontact').value);
+
+// отправка данных формы POST запросом при помощи FormData
+    fetch("https://httpbin.org/post",{
+        method: 'POST',
+        body: formData
+    })
+    .then((response) => {
+        return response.json();
+    })
+    .then((formData) => {
+        console.log(formData);
+    })
+    .catch(error => console.log(error))
+}
+
+    </script>
+</body>
+</html>

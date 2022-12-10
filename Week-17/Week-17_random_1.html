@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 14px;
+        }
+        div {
+            width: 400px;
+            height: 30px;
+            line-height: 24px;
+            margin-bottom: 10px;
+        }
+        button {
+            width: 150px;
+            height: 50px;
+            font-weight: bold;
+            color: rgb(6, 6, 6);
+            background-color: orange;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="out-1"></div>
+    <div id="out-3"></div>
+    <div id="out-4"></div>
+    <div id="out-5"></div>
+    <div id="out-6"></div>
+    <div id="out-7"></div>
+    <button type="button" onclick="getRandomCalc()">GET RANDOM NUMBERS</button>
+
+    <script>
+        function getRandomCalc(){
+            let sum = 0;
+            let multy = 1;
+            let arrayRandom = [];
+
+            for (let i=0; i<10; i++){
+                let nMax = Math.floor(Math.random()*10+1);
+                let nMin = Math.round(Math.random()*10-10);
+                let numberRandom = nMax + nMin;
+                arrayRandom.push(numberRandom);
+            }
+
+            document.getElementById("out-1").innerHTML = 'Random numbers generated: ' + arrayRandom.join(' ');
+            let arrSorted = arrayRandom.sort( (a, b) => a - b );
+            document.getElementById("out-3").innerHTML = 'Min random number = ' + arrSorted[0];
+            document.getElementById("out-4").innerHTML = 'Max random number = ' + arrSorted[9];
+            
+            // total sum calculating
+            sum = arrayRandom.reduce(function(a, b) {
+            return a + b;
+            });
+
+            // multiplying
+            for (let i=0; i<10; i++){
+                multy = arrayRandom[i]*multy;
+            }
+
+            document.getElementById("out-5").innerHTML = 'Sum = ' + sum;
+            document.getElementById("out-6").innerHTML = 'Average = ' + sum/arrayRandom.length;
+            document.getElementById("out-7").innerHTML = 'Multiplication = ' + multy;
+        }
+
+    </script>
+</body>
+</html>

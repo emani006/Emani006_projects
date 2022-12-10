@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{transition:.3s linear;}
+body {
+  margin: 0;
+  background: #F0F0F0;
+  font-family: cambria;
+  color: #240152;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.container {flex: 1;}
+header {
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #6F06CC;
+  color: white;
+}
+.content-wrap {
+  padding: 20px;
+  margin-bottom: 20px;
+  background: white;
+}
+aside {
+  padding: 20px;
+  margin-bottom: 20px;
+  background: white;
+  border: 2px solid #FF9100;
+}
+footer {
+  padding: 20px;
+  background: #D1D1D1;
+}
+
+@media (min-width:768px) {
+  .main-content {display: flex;}
+  .content-wrap {
+    width: calc(100% - 300px);
+    margin-right: 20px;
+  }
+  aside {width: 300px;}
+}
+</style>
+<body>
+    <header>Шапка страницы</header>
+<div class="container">
+<div class="main-content">
+<div class="content-wrap">
+<h1>Основной контент</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consectetur enim a mi varius viverra. Quisque imperdiet nec purus in condimentum. Suspendisse laoreet, sem eu aliquam porttitor, risus augue viverra mauris, id vestibulum eros massa quis mauris. Vestibulum gravida ut nisl vitae pulvinar. Nulla volutpat magna lectus, in ornare dolor maximus sit amet. Phasellus aliquet fringilla nunc sit amet faucibus. Duis non elementum tortor.</p>
+</div>
+<aside>
+<h2>Боковая колонка</h2>
+<p>Nullam ac imperdiet mi. In efficitur iaculis erat id mattis. Nulla sit amet rutrum ante. Morbi cursus purus sit amet massa tincidunt luctus. Etiam hendrerit odio ante, vitae convallis neque lacinia et. Nam id imperdiet nisl.Mauris in vulputate ex. Sed convallis quam convallis leo pretium, eget ullamcorper lorem congue. Integer nulla tortor, lobortis ut feugiat vel, sollicitudin quis dolor. Mauris et porta ligula. Nunc porta eget ipsum in luctus. Nam vel facilisis elit. Aliquam et risus a turpis fringilla consequat. </p>
+</aside>
+</div>
+</div>
+<footer>Подвал страницы</footer>
+</body>
+</html>

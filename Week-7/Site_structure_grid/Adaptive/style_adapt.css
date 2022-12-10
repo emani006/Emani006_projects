@@ -1,0 +1,267 @@
+/* // mobile // */
+@media only screen and (max-width:768px) {
+    .container {
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 100%;
+    }
+    body {
+        margin: 0;
+    }
+    /* header */
+    header {
+        display: grid;
+        width:100%;
+        grid-template-rows: 70px;
+        order:0;
+        justify-items: center;
+        background-color: rgba(233, 229, 229, 0.821);
+    }
+    header:hover {
+        box-shadow: inset rgba(150, 150, 149, 0.75) 0 0 100px 100px
+    }
+    /* aside block */
+    aside {
+        display: grid;
+        grid-template-rows: 100px;
+        order:0;
+        padding-top: 10%;
+        text-align: center;
+        background-color: rgba(224, 246, 204, 0.821);
+    }
+    aside:hover {
+        box-shadow: inset rgba(2, 244, 99, 0.75) 0 0 100px 100px
+    }
+    main {
+        display: grid;
+        order:1;
+        width: 100%;
+        grid-template-rows: 1fr 4fr;
+    }
+
+    .block {
+        display: grid;
+        grid-template-rows: 1fr 40%;
+        order:1;
+        background-color: rgb(246, 236, 220);
+    }
+    .block_top {
+        display: grid;
+        padding-top: 5%;
+        text-align: center;
+    }
+    .block_top:hover {
+        box-shadow: inset rgba(244, 192, 2, 0.75) 0 0 100px 100px
+    }
+    /* main bottom blocks */
+    .wrapper {
+        display: grid;
+        width: 100%;
+        
+        grid-template-columns: 3% 1fr 2% 1fr 3%;
+        grid-template-rows: 3% 1fr 5% 1fr 3%;
+    }
+    .box1 {
+        display: grid;
+        align-items: center;
+        grid-area: 2/2/3/5;
+        text-align: center;
+        
+        background-color: rgb(250, 219, 181);
+    }
+    .box1:hover {
+        box-shadow: inset rgba(244, 192, 2, 0.75) 0 0 100px 100px
+    }
+    .box2 {
+        display: grid;
+        align-items: center;
+        grid-area: 4/2/5/3;
+        text-align: center;
+        background-color: rgb(250, 219, 181);
+    }
+    .box2:hover {
+        box-shadow: inset rgba(244, 192, 2, 0.75) 0 0 100px 100px
+    }
+    .box3 {
+        display: grid;
+        align-items: center;
+        grid-area: 4/4/5/5;
+        text-align: center;
+        background-color: rgb(250, 219, 181);
+    }
+    .box3:hover {
+        box-shadow: inset rgba(244, 192, 2, 0.75) 0 0 100px 100px
+    }
+    /* footer */
+    footer {
+        display: grid;
+        grid-template-columns: 1fr;
+        order:2;
+        align-items: center;
+        justify-items: center;
+        background-color: rgba(233, 229, 229, 0.821);
+    }
+    .fpart {
+        display: grid;
+        height: 70%;
+        width: 70%;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        margin: 10px;
+    
+        background-color: rgba(255, 255, 255, 0.963);
+        font-size: 1em;
+    }
+    .fpart:hover {
+        box-shadow: inset rgba(155, 155, 153, 0.75) 0 0 100px 100px
+    }
+    #text_style {
+        font-weight: bolder;
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+    }
+}
+
+/* // tablet, monitors // */
+@media only screen and (min-width:769px) {
+    body {
+        margin: 0;
+    }
+    
+    .container {
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 100%;
+        grid-template-rows: 4em 2fr 6em;
+    }
+    
+    /* header */
+    header {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 4em;
+        align-items: center;
+        justify-items: center;
+        background-color: rgba(233, 229, 229, 0.821);
+    }
+    header:hover {
+        box-shadow: inset rgba(150, 150, 149, 0.75) 0 0 100px 100px
+    }
+    main {
+        display: grid;
+        width: 100%;
+        height: calc(100vh-10em);
+        grid-template-columns: 65% 1fr;
+        grid-template-rows: 100% 100%;
+    }
+    /* aside block */
+    aside {
+        display:grid;
+        padding-top: 10%;
+        text-align: center;
+        background-color: rgba(224, 246, 204, 0.821);
+    }
+    aside:hover {
+        box-shadow: inset rgba(2, 244, 99, 0.75) 0 0 100px 100px
+    }
+    .block {
+        display: grid;
+        grid-template-rows: 1fr 40%;
+        background-color: rgb(246, 236, 220);
+    }
+    .block_top {
+        display: grid;
+        padding-top: 5%;
+        text-align: center;
+    }
+    .block_top:hover {
+        box-shadow: inset rgba(244, 192, 2, 0.75) 0 0 100px 100px
+    }
+    /* main bottom blocks */
+    .wrapper {
+        display: grid;
+        width: 100%;
+        
+        grid-template-columns: 3% 1fr 2% 1fr 3%;
+        grid-template-rows: 3% 1fr 5% 1fr 3%;
+    }
+    .box1 {
+        display: grid;
+        align-items: center;
+        grid-area: 2/2/3/5;
+        text-align: center;
+        
+        background-color: rgb(250, 219, 181);
+    }
+    .box1:hover {
+        box-shadow: inset rgba(244, 192, 2, 0.75) 0 0 100px 100px
+    }
+    .box2 {
+        display: grid;
+        align-items: center;
+        grid-area: 4/2/5/3;
+        text-align: center;
+        background-color: rgb(250, 219, 181);
+    }
+    .box2:hover {
+        box-shadow: inset rgba(244, 192, 2, 0.75) 0 0 100px 100px
+    }
+    .box3 {
+        display: grid;
+        align-items: center;
+        grid-area: 4/4/5/5;
+        text-align: center;
+        background-color: rgb(250, 219, 181);
+    }
+    .box3:hover {
+        box-shadow: inset rgba(244, 192, 2, 0.75) 0 0 100px 100px
+    }
+    /* footer */
+    footer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        order:3;
+        align-items: center;
+        justify-items: center;
+        background-color: rgba(233, 229, 229, 0.821);
+    }
+    .fpart {
+        display: grid;
+        height: 70%;
+        width: 75%;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        margin: 10px;
+    
+        background-color: rgba(255, 255, 255, 0.963);
+        font-size: 14px;
+    }
+    .fpart:hover {
+        box-shadow: inset rgba(155, 155, 153, 0.75) 0 0 100px 100px
+    }
+    #text_style {
+        font-weight: bolder;
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+    }
+}
+
+@media only screen and (min-width:1024px){
+    body{
+        font-size: 1.5em;
+    }
+    .fpart{
+        font-size: 0.8em;
+    }
+
+}
+@media only screen and (min-width:1366px){
+    body{
+        font-size: 2em;
+    }
+    .fpart{
+        font-size: 1em;
+    }
+}

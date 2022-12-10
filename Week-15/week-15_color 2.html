@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label  {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 16px;
+        }
+        .opt {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <label>Choose your background color: </label>
+    <select class="opt"  id="color" name="colour" required="required">
+        <option value="">Choose your background color</option>
+        <optgroup label="Light colors">
+            <option value="wheat" onclick="myFunction()">Wheat</option>
+            <option value="bisque" onclick="myFunction()">Bisque</option>
+            <option value="lightgrey" onclick="myFunction()">Lightgrey</option>
+        </optgroup>
+        <optgroup label="Dark colors">
+            <option value="darkblue" onclick="myFunction()">Darkblue</option>
+            <option value="brown" onclick="myFunction()">Brown</option>
+            <option value="maroon" onclick="myFunction()">Maroon</option>
+        </optgroup>
+        <optgroup label="Bright colors">
+            <option value="yellow" onclick="myFunction()">Yellow</option>
+            <option value="cyan" onclick="myFunction()">Cyan</option>
+            <option value="orange" onclick="myFunction()">Orange</option>
+        </optgroup>
+    </select>
+    
+    <script>
+
+    var colorChoice = document.getElementById('color');
+
+    colorChoice.addEventListener("change", myFunction);
+
+function myFunction() {
+    var getValue = this.value;
+        // this в этом контексте - элемент, который запустил фукнцию.
+        switch (getValue) {
+                case 'wheat':
+                document.body.style.backgroundColor = 'wheat';
+                    break;
+                case 'bisque':
+                document.body.style.backgroundColor = 'bisque';
+                    break;
+                case 'lightgrey':
+                document.body.style.backgroundColor = 'lightgrey';
+                    break;
+                case 'darkblue':
+                document.body.style.backgroundColor = 'darkblue';
+                    break;
+                case 'brown':
+                document.body.style.backgroundColor = 'brown';
+                    break;
+                case 'maroon':
+                document.body.style.backgroundColor = 'maroon';
+                    break;
+                case 'yellow':
+                document.body.style.backgroundColor= 'yellow';
+                    break;
+                case 'cyan':
+                document.body.style.backgroundColor = 'cyan';
+                    break;
+                case 'orange':
+                document.body.style.backgroundColor = 'orange';
+                    break;
+                default: 
+                document.body.style.backgroundColor = 'white';
+                }
+}
+
+    </script>
+</body>
+</html>

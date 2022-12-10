@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .calculator {
+            display: grid;
+            width: 400px;
+            height: 300px;
+            grid-template-columns: 1fr;
+            grid-template-rows: 50px 40px 55px 40px 1fr;
+            border: 2px solid grey;
+            background-color: antiquewhite;
+            justify-items: center;
+            border-radius: 40px;
+            box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
+        }
+        h2 {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+            letter-spacing: 2px;
+            color:black;
+        }
+        p {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+            text-align: center;
+            font-size: 16px;
+            color:black;
+        }
+        .row_first {
+            display: grid;
+            grid-template-columns: 120px 120px;
+            grid-template-rows: 1fr;
+            margin-top: 1rem;
+            gap: 1.5rem;
+        }
+        .row_second {
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: 1fr;
+            gap: 1rem;
+        }
+        .button_operation {
+            width: 2rem;
+            height: 2rem;
+            font-weight: bold;
+            font-size: 15px;
+            background: rgb(255, 234, 0);
+            box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+            transition: .3s;
+        }
+        .button_operation:hover {
+            background: orange;
+            box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
+            color: white;
+            transform: translateY(-1px);
+            cursor: pointer;
+        }
+        .button_reset {
+            width: 3.5rem;
+            height: 2rem;
+            font-weight: bold;
+            font-size: 15px;
+            background: rgb(255, 234, 0);
+            box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+            transition: .3s;
+        }
+        .button_reset:hover {
+            background: orange;
+            box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
+            color: white;
+            transform: translateY(-1px);
+            cursor: pointer;
+        }
+        .button_enter {
+            display: inline-block;
+            width: 120px;
+            height: 50px;
+            line-height: 15px;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: #524f4e;
+            background: rgb(255, 234, 0);
+            box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+            transition: .3s;
+        }
+        .button_enter:hover {
+            background: orange;
+            box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
+            color: white;
+            transform: translateY(-1px);
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>CALCULATOR</h2>
+        <p>To get a result, enter numbers first:</p> 
+        <div class="row_first">
+            <input id="firstNum" placeholder="number 1" type="text">
+            <input id="secondNum" placeholder="number 2" type="text">
+        </div>
+        <p>Choose operation:</p> 
+        <div class="row_second">        
+            <p><button class="button_operation" onclick="operation()" id="plus" type="button">+</button></p>
+            <p><button class="button_operation" onclick="operation()" id="minus" type="button">-</button></p>
+            <p><button class="button_operation" onclick="operation()" id="multy" type="button">*</button></p>
+            <p><button class="button_operation" onclick="operation()" id="devide" type="button">/</button></p>
+            <p><button class="button_reset" onclick="reset()" id="reset" type="button">C</button></p>
+        </div>
+        <div id="output">
+            Результат: 
+        </div>
+    </div>
+    <script>
+            let num1 = Number(document.getElementById('firstNum').value);
+            let num2 = Number(document.getElementById('secondNum').value);
+            let op;
+            //const output = document.querySelector('output')
+
+    function operation () {
+        let num1 = Number(document.getElementById('firstNum').value);
+        let num2 = Number(document.getElementById('secondNum').value);
+
+        switch(op){
+        
+        case getElementById('plus'):
+            let result = num1 + num2;
+            console.log(num1 + num2);
+            document.getElementById('output').innerHTML = result;
+            break;
+
+        case getElementById('minus'): 
+            console.log(num1 - num2);
+            break;
+
+        case getElementById('multy'): 
+            console.log(num1 * num2);
+            break;
+
+        case getElementById('devide'): 
+            console.log(num1 / num2);
+            break;
+        }
+    }
+
+    </script>
+</body>
+</html>

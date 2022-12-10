@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 100px 30% 1fr;
+            grid-template-rows: 200px 100px 1fr;
+            grid-gap: 10px;
+        }
+        .cell {
+        background: linear-gradient(to left top,aqua, rgb(57, 57, 236), rgb(109, 3, 247));
+        border: 3px solid black;
+        }
+        .container2 {
+                    display: grid;
+                    grid-template-columns: repeat(3, 100px);
+                    grid-template-rows: 50px 150px 50px;
+                    justify-content: space-between;
+                    width: 450px;
+                    height: 250px;
+                    padding: 5px;
+                    border: 1px dashed grey;
+                }
+                .pik {
+                    background-color: orange;
+                    border-radius: 10px;
+                    border: 1px solid black;
+                }
+        </style>
+        <body>
+            <div class="container">
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+            </div>     
+        <div class="container2">
+                <div class="pik"></div>
+                <div class="pik"></div>
+                <div class="pik"></div>
+                <div class="pik"></div>
+                <div class="pik"></div>
+                <div class="pik"></div>
+                <div class="pik"></div>
+                <div class="pik"></div>
+                <div class="pik"></div>
+            </div> 
+        </body>
+        
+</html>

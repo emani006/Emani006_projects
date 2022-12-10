@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            height: 20px;
+            padding: 15px;
+            margin: 5px 0 15px 0;
+            border: 1px solid black;
+            border-radius: 10px;
+            background: #f1f1f1;
+            font-size: 14px;
+        }
+        .first {
+            width: 100px;
+        }
+        .output {
+            width: 300px;
+        }        
+        .sum {
+            width: 300px;
+        }
+        p {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        button {
+            width: 110px;
+            height: 50px;
+            color: rgb(6, 6, 6);
+            border-radius: 10px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 14px;
+        }
+        .reset {
+            background-color: navajowhite;
+
+        }
+        .show {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input class="first" id="first" type="text" placeholder="Enter a number">
+    </div>
+    <div>
+        <button class="reset" type="reset" onclick="clearArr()" id="reset">RESET</button>
+        <button class="show" type="submit" onclick="sumInput()" id="ready">SHOW results</button>
+        <p></p>
+    </div>
+    <div>
+        <p>Array: </p>
+        <input class="output" id="output" type="text" placeholder="Array"><br>
+        <p>Sum: </p>
+        <input class="sum" id="sum" type="text" placeholder="Sum">
+    </div>
+
+    <script>
+        let arrNumbers = [];
+
+        function clearArr(){
+            arrNumbers.length = 0;
+            sum = 0;
+            document.getElementById("first").value = '';
+            document.getElementById("output").value = '';
+            document.getElementById("sum").value = '';
+        }
+
+        function sumInput(){
+                let item = Number(document.getElementById("first").value);
+                        arrNumbers.push(item);
+
+                inner_block: {
+                    if (arrNumbers.includes(NaN) == true){
+                        arrNumbers.pop();
+                        document.getElementById("first").value = '';
+                        break inner_block;
+                    } else {
+                        let arrSorted = arrNumbers.sort( (a, b) => a - b );
+                        document.getElementById("first").value = '';
+                        document.getElementById("output").value = arrSorted;
+
+                        let sum = 0;
+                        for(let i = 0; i < arrNumbers.length; i++){
+                                sum += arrNumbers[i];
+                                }
+                        document.getElementById("sum").value = sum;
+                        }
+                }
+        }
+    </script>
+</body>
+</html>

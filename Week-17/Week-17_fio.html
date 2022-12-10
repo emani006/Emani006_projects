@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 350px;
+            height: 20px;
+            padding: 15px;
+            margin: 5px 0 15px 0;
+            border: 1px solid black;
+            background: #f1f1f1;
+            font-size: 14px;        
+        }
+        .form {
+            display: grid;
+            grid-template-rows: repeat(5,70px);
+            align-items: center;
+        }
+        .row {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="form">
+    <div class="row">
+        <p>ФИО</p>
+        <input class="fio" id="fio" type="text" placeholder="введите ФИО">
+    </div>
+    <div class="row">
+        РЕЗУЛЬТАТ
+    </div>
+    <div class="row">
+        <p>Фамилия</p>
+        <input class="last" id="last" type="text">
+    </div>
+    <div class="row">
+        <p>Имя</p>
+        <input class="first" id="first" type="text">
+    </div>
+    <div class="row">
+        <p>Отчество</p>
+        <input class="second" id="second" type="text">
+    </div>
+</div>
+    <script>
+        let arrFullName = [];
+        let arr = [];
+        const reg = /[A-Za-zА-Яа-я]/g;
+        
+        document.getElementById('fio').addEventListener('change',() => {
+            let str = document.getElementById('fio').value.trim().toLowerCase();
+            arr = str.split(' ');
+
+            // deleting spaces
+            for (let i=0; i<arr.length; i++){
+                    if (arr[i] !== '') {
+                        arrFullName.push(arr[i]);
+                    }
+                }
+            // checking if there is no digits or symbols in names
+                let setArr = [];
+                for (let i=0; i<arrFullName.length; i++){
+                    let rr = arrFullName[i].match(reg);
+                    mArr = Array.from(rr);
+                    setArr[i] = mArr.join('')
+                }
+            // conversion of names to usual form
+                let x = [];
+                let w = [];
+                let arrChanged = [];
+                for (let i=0; i<setArr.length; i++){
+                    w = setArr[i].split('');                    
+                    for (let j=0; j<w.length; j++){
+                        if (j === 0){
+                            x[j] = w[j].toUpperCase();
+                            continue;
+                        } else {
+                            x.push(w[j]);
+                        }
+                    }
+                    arrChanged [i] = x;
+                    x = [];
+                }
+
+                // getting result
+                document.getElementById('last'). value = arrChanged[0].join('');
+                document.getElementById('first'). value = arrChanged[1].join('');
+                document.getElementById('second'). value = arrChanged[2].join('');
+        })
+    </script>
+</body>
+</html>

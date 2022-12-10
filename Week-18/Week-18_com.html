@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body, textarea, button {
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 16px;
+    }
+    button {
+            height: 50px;
+            font-weight: bold;
+            color: black;
+            background-color: orange;
+            border-radius: 10px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    textarea {
+        padding: 10px;
+    }
+    input {
+        border: 1px solid black;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    .block {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 50px 200px 50px;
+        justify-content:center;
+        margin: 15px;
+        padding: 10px;
+    }
+    </style>
+</head>
+<body>
+        <span id="add"></span><br>
+    <hr>
+<div class="block">
+    <input type="text" id="name" placeholder="your name">
+    <input type="text" id="image" placeholder="enter link to your avatar image here">
+    <textarea id="comment" rows="10" cols="50" placeholder="enter your comments"></textarea>
+    <button id="send">SEND</button>
+</div>
+    <script>
+        const regV = /viagra/gi;
+        const regX = /[x]{3,}/gi;
+        const subst = '***';
+        let arrayCom = [];  
+        let arr = [];
+        let arrayContainer = [];
+        let counter = 0;
+
+        document.getElementById('send').addEventListener('click',() => {
+            let str = document.getElementById('comment').value;//get comment
+            let name = document.getElementById('name').value;//get user's name
+
+            arr = str.split(' ');
+            for (let i=0; i<arr.length; i++){
+                    if (arr[i] !== '') {
+                        arrayCom.push(arr[i]);
+                    }
+                }
+
+            for (let i=0; i<arrayCom.length; i++){
+                    if (arrayCom[i].match(regV) || arrayCom[i].match(regX)) {
+                        arrayCom[i] = subst;
+                    }
+                }
+
+                arrayContainer[counter] = new Array(name,str);//сохраняем все имена и комментарии в двумерный массив
+                counter++;
+                console.log(arrayContainer);//выводим массив
+
+            let imageLink = document.getElementById('image').value;
+            //location.href = imageLink;//получение ссылки, введенной в input и дале переход по ней (если выведем в innerHTML)
+            
+            localStorage.setItem('users', JSON.stringify(arrayContainer));
+            //localStorage.setItem(name, str);//сохранение имени/комментария
+            //localStorage.setItem(name, imageLink);//можно также сохранить пару имя/картинка
+            
+            document.querySelector('#add').innerHTML += "<img src='" + imageLink + "' width='50' height='50'>" + 
+            `<span style="padding-left: 10px;">${name}</span>` + `<span style="padding-left: 25px;">${arrayCom.join(' ')}</span>` + `</br>`;
+            document.getElementById('comment').value = '';
+            document.getElementById('image').value = '';
+            document.getElementById('name').value = '';
+            arrayCom = [];
+        })
+    </script>
+</body>
+</html>

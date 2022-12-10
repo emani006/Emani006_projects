@@ -1,0 +1,109 @@
+.container__blog {
+    display: grid;
+    height:100vh;
+    justify-items: center;
+    align-items: center;
+    margin-top: 4em;
+}
+.button__blog {
+    display: grid;
+    width: 59px;
+    height: 32px;
+    justify-content: center;
+    align-content: center;
+    border-radius: 64px;
+    font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
+    font-size: 16px;    
+    background-color: #DDF0A7;
+    border: none;
+}
+.button__view {
+    display: grid;
+    width: 109px;
+    height: 52px;
+    justify-content: center;
+    align-content: center;
+    border-radius: 64px;
+    font-size: 15px;
+    font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
+    border: 2px solid #162E3C;
+}
+.title__title {
+    margin-top: 15px;
+    margin-bottom: 24px;
+    font-size: 48px;
+    font-family: 'Fraunces', Arial, Helvetica, sans-serif;
+}
+.title__text {
+    margin-bottom: 3.5em;
+    font-size: 18px;
+    font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
+    color: #49616E;
+}
+.block {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr;
+    margin-left: 1.5em;
+    margin-bottom: 4em;
+}
+.block__card {
+    display: grid;
+    justify-items: center;
+    height: 664px;
+    border: 1px solid #E5E7EB;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    margin-right: 1.5em;
+}
+.link__nounderline {
+    text-decoration: none;
+    color:#162E3C;
+}
+.button__card {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    width: 94px;
+    height: 39px;
+    border: 1px solid #E5E7EB;
+    border-radius: 32px;
+    font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-right: 1.5em;
+}
+.card__title {
+    color: #162E3C;
+    padding: 0 31px 0 31px;
+    text-align: center;
+    font-family: 'Fraunces', Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    line-height: 33px;
+}
+.card__text {
+    color: #49616E;
+    padding: 5px 30px 25px 40px;
+    text-align: center;
+    font-family: 'Space Grotesk Regular', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+}
+.bt {
+    display: inline-flex;
+    align-items:baseline;
+    font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #162E3C;
+}
+.readmore_style {
+    display: inline-flex;
+    width: 8em;
+    align-items:center;
+    justify-content: space-around;
+    margin: 1em;
+    font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #162E3C;
+}

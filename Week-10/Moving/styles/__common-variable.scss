@@ -1,0 +1,56 @@
+/*Тут переменные, общие для всего проекта*/
+
+$grid-breakpoint-xs: 0;
+$grid-breakpoint-sm: 576px;
+$grid-breakpoint-md: 768px;
+$grid-breakpoint-lg: 992px;
+$grid-breakpoint-xl: 1200px;
+$grid-breakpoint-xxl: 1400px;
+
+
+$font-family-serif: Georgia, 'Times New Roman', serif;
+$font-family-sans-serif: Arial, Helvetica, sans-serif;
+
+$color-main: #000;
+$container-max-width: 1296px;
+
+/* Оригинальные переменные HOMEPAGE  */
+$main-background: #0C0B0B;
+$grey-background: #282828;
+$burger-color: #232323;
+$text-color: #cdcdcd;
+$menu-color: white;
+$menu-burger-background: #ededed;
+$menu-burger-active-item: tomato;
+
+$font-size-home: 20px;
+$font-size-home-mobile: 22px;
+$font-size-footer: 16px;
+
+/* А тут какие-то классы и стили для тегов, тоже общие для всего проекта */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: $font-family-sans-serif;
+    color: $color-main;
+}
+
+a {
+    text-decoration: none;
+}
+
+header,
+main,
+section,
+footer {
+    max-width: $container-max-width;
+    margin: 0 auto;
+}

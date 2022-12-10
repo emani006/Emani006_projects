@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 14px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 7fr;
+        }
+        .output {
+            width: 450px;
+            height: 30px;
+            line-height: 24px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: beige;
+            border: 1px solid black;
+        }
+        button {
+            width: 150px;
+            height: 50px;
+            font-weight: bold;
+            color: rgb(6, 6, 6);
+            background-color: orange;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="output" id="out-1">Random numbers generated:</div>
+        <div class="output" id="out-3">Min random number = </div>
+        <div class="output" id="out-4">Max random number = </div>
+        <div class="output" id="out-5">Sum = </div>
+        <div class="output" id="out-6">Average = </div>
+        <div class="output" id="out-7">Multiplication = </div>
+        <button type="button" onclick="getRandomCalc()">GET RANDOM NUMBERS</button>
+    </div>
+    <script>
+        function getRandomCalc(){
+            let sum = 0;
+            let multy = 1;
+            let arrayRandom = [];
+            const min = -10;
+            const max = 10;
+
+            for (let i=0; i<10; i++){
+                // ready-to-go formula of getting random number
+                const Random = (min, max) => {
+                return Math.floor(Math.random() * (max - min) + min);
+                }
+                arrayRandom.push(Random(min,max));
+            }
+
+            // max random number
+            let maxNumber = arrayRandom.reduce((max,item) => {
+                if (item > max){
+                    max = item;
+                }
+                return max;
+            });
+
+            document.getElementById("out-1").innerHTML = 'Random numbers generated: ' + arrayRandom.join(' ');
+            document.getElementById("out-3").innerHTML = 'Min random number = ' + Math.min(...arrayRandom);
+            document.getElementById("out-4").innerHTML = 'Max random number = ' + Math.max(...arrayRandom);
+                        
+/*
+            // getting min random number with alternative method 1
+            arrayRandom.sort( (a, b) => a - b );
+            console.log(arrayRandom[0]);
+
+            
+            // getting min random number with alternative method 2
+            let maxN = arrayRandom.reduce((a,b) => {
+                if (a > b) {
+                    a = b;
+                }
+                return a;
+            });
+            console.log(maxN);
+*/
+
+
+/*
+            // getting max random number with alternative method
+            let minN = arrayRandom.reduce((a,b) => {
+                if (b < a) {
+                    a = b;
+                }
+                return a;
+            });
+            console.log(minN);
+*/
+
+            // total sum calculating
+            sum = arrayRandom.reduce((a, b) => {
+            return a + b;
+            });
+
+            // multiplying
+            multy = arrayRandom.reduce((a, b) => {
+            return a * b;
+            });
+
+            document.getElementById("out-5").innerHTML = 'Sum = ' + sum;
+            document.getElementById("out-6").innerHTML = 'Average = ' + sum/arrayRandom.length;
+            document.getElementById("out-7").innerHTML = 'Multiplication = ' + multy;
+        }
+
+
+    </script>
+</body>
+</html>

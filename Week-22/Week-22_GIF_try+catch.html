@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+        }
+        img {
+            width: 20%;
+        }
+        input {
+            width: 200px;
+            height: 20px;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        button {
+            width: 70px;
+            height: 30px;
+            border-radius: 10px;
+            background-color: orange;
+            font-size: 14px;
+        }
+        #out {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h2>Enter a word and get GIFs</h2>
+    <input id="gifname" placeholder="enter gif name to search" type="text">
+    <button type="submit" id="add" onclick="getGif()">GET IT</button>
+</div>
+<div id="out"></div>
+    
+    <script>
+
+        // запуск поиска картинок при нажатии Enter
+        if (document.getElementById("gifname").value !== null){
+                document.getElementById("gifname").addEventListener("keyup", function(e) {
+                        if (e.code === 'Enter') {
+                            document.getElementById("add").click();
+                        }
+                    });
+            };
+
+// функция запуска поиска картинок
+        function getGif(){
+        let gif = document.getElementById("gifname").value;
+
+    try {
+            fetch('https://api.giphy.com/v1/gifs/search?api_key=RFqR4CQYWWaTI1sDk0elZH0e5BthembN&q=' + gif + '&limit=5&offset=0&rating=g&lang=en',{
+                method: 'GET',
+                body: JSON.stringify()
+            })
+            .then((response) => {
+                    return response.json(gif);
+            })
+            .then ((result) => {
+                document.getElementById("out").innerHTML = '';
+                result.data.forEach(item => {
+                    document.getElementById("out").innerHTML += `<img src=${item.images.original.url}>`;
+                    })
+                })
+                .catch(error => console.log(error))
+        } catch(error){
+            alert('Server does not respond. Error: ' + error.message);
+        }
+}
+
+// установка курсора в input очищает ввод
+document.getElementById('gifname').addEventListener('click', () => {
+    document.getElementById("gifname").value = '';
+    document.getElementById("out").innerHTML = ''; 
+});
+
+    </script>
+</body>
+</html>

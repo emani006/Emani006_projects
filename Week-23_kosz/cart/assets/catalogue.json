@@ -1,0 +1,140 @@
+[{
+    "name": "Букет красных и кремовых роз с зеленым декором",
+    "photo": "././assets/images/1.webp",
+    "price": "30",
+    "description": "Розы красные, розы кремовые, листья зелени",
+    "category": "bouquet"
+},
+{
+    "name": "Букет из оранжевых роз и кактусов с бутонами лилий",
+    "photo": "././assets/images/beautiful-flower-bouquets-85.jpg",
+    "price": "35",
+    "description": "Нежно-оранжевые розы, мини-кактусы с мягкими иголками, зелень",
+    "category": "bouquet"
+},
+{
+    "name": "Розы белых и пастельных оттенков",
+    "photo": "././assets/images/18.webp",
+    "price": "5",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "roses"
+},
+{
+    "name": "Букет из малиновых роз и орхидей",
+    "photo": "././assets/images/14.webp",
+    "price": "40",
+    "description": "Композиция гербер, роз, лилий и белых ....",
+    "category": "bouquet"
+},
+{
+    "name": "Розы белого цвета с сине-фиолетовым декором",
+    "photo": "././assets/images/19.webp",
+    "price": "10",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "roses"
+},
+{
+    "name": "Крупные розы нежных цветов",
+    "photo": "././assets/images/20.webp",
+    "price": "15",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "roses"
+},
+{
+    "name": "Букет из роз, гвоздик, пионов и веток акации",
+    "photo": "././assets/images/2.webp",
+    "price": "35",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "bouquet"
+},
+{
+    "name": "Плетеная корзина крупных алых роз",
+    "photo": "././assets/images/13.jpeg",
+    "price": "45",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "basket"
+},
+{
+    "name": "Корзина хризантем, роз и зеленых веточек",
+    "photo": "././assets/images/21.webp",
+    "price": "40",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "basket"
+},
+{
+    "name": "Корзина цветов для велосипеда",
+    "photo": "././assets/images/3.jpeg",
+    "price": "35",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "basket"
+},
+{
+    "name": "Нежный букет из роз и анемонов",
+    "photo": "././assets/images/6.webp",
+    "price": "50",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "bouquet"
+},
+{
+    "name": "Корзина малиновых роз и белых орхидей",
+    "photo": "././assets/images/22.webp",
+    "price": "55",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "basket"
+},
+{
+    "name": "Розы кремовых и розовых оттенков",
+    "photo": "././assets/images/17.webp",
+    "price": "15",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "roses"
+},
+{
+    "name": "Букет из пионов и астр, декорированныйлистьями",
+    "photo": "././assets/images/5.webp",
+    "price": "25",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "bouquet"
+},
+{
+    "name": "Корзина с полевыми ромашками",
+    "photo": "././assets/images/8.webp",
+    "price": "30",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "basket"
+},
+{
+    "name": "Корзина мини-подсолнухов и зеленых веточек",
+    "photo": "././assets/images/9.jpeg",
+    "price": "20",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "basket"
+},
+{
+    "name": "Розы нежного розово-молочного цвета",
+    "photo": "././assets/images/16.webp",
+    "price": "5",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "roses"
+},
+{
+    "name": "Корзина белых и фиолетовых цветов",
+    "photo": "././assets/images/11.jpeg",
+    "price": "30",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "basket"
+},
+{
+    "name": "Корзина розовых орхидей и мини-роз ",
+    "photo": "././assets/images/23.webp",
+    "price": "55",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "basket"
+},
+{
+    "name": "Розы насыщенного красного цвета",
+    "photo": "././assets/images/15.webp",
+    "price": "10",
+    "description": "Розы, фиалки, каллы и белые....",
+    "category": "roses"
+}]

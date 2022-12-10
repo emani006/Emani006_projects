@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .calculator {
+            display: grid;
+            width: 370px;
+            height: 400px;
+            grid-template-columns: 1fr;
+            grid-template-rows: 50px 40px 1fr;
+            border: 2px solid grey;
+            background-color: rgb(51, 50, 50);
+            justify-items: center;
+            box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
+        }
+        h2 {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+            letter-spacing: 2px;
+            color:white;
+        }
+        p {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+            text-align: center;
+            font-size: 12px;
+            color:white;
+        }
+        input {
+            height: 35px;
+            padding-left: 5px;
+            font-size: 16px;
+        }
+        .row_operation {
+            display: grid;
+            grid-template-rows: 40px 40px 40px 50px;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .oper {
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: 1fr;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        .button_operation {
+            width: 45px;
+            height: 45px;
+            font-weight: bold;
+            font-size: 20px;
+            background: orange;
+            box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+            transition: .3s;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+            border-radius: 50px;
+        }
+        .button_operation:hover {
+            background: rgb(255, 231, 183);
+            box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
+            color: black;
+            transform: translateY(-1px);
+            cursor: pointer;
+        }
+        .result {
+            display: grid;
+            height: 30px;
+            background-color: white;
+            font-size: 16px;
+            padding: 5px;
+            align-items: center;
+            text-align: center;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+        }
+        .resol {
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            grid-template-rows: 1fr;
+            align-items: center;
+        }
+        .res {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>CALCULATOR</h2>
+        <p>To get a result, enter numbers and choose the operation:</p> 
+        <div class="row_operation">
+            <input id="firstNum" placeholder="number 1" type="text">
+            <input id="secondNum" placeholder="number 2" type="text">
+            <div class="oper">
+                <p><button class="button_operation" onclick="op='+'" id="plus" type="button">+</button></p>
+                <p><button class="button_operation" onclick="op='-'" id="minus" type="button">-</button></p>
+                <p><button class="button_operation" onclick="op='*'" id="multy" type="button">*</button></p>
+                <p><button class="button_operation" onclick="op='/'" id="devide" type="button">/</button></p>
+                <p><button class="button_operation" onclick="reset()" id="reset" type="button">C</button></p>
+            </div>
+            <div class="resol">
+                <button class="button_operation res" id="res" onclick="operation()">=</button>
+                <span class="result" id="output">???</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        var op;
+        function operation() {
+            var result;
+            var num1 = Number(document.getElementById("firstNum").value);
+            var num2 = Number(document.getElementById("secondNum").value);
+
+            let a = document.getElementById("firstNum").value;
+            let b = document.getElementById("secondNum").value;
+
+            let c = parseInt(document.getElementsByTagName ('input')[0].value);
+            let d = parseInt(document.getElementsByTagName ('input')[1].value);
+
+        if (a == '' || b == '' || isNaN(c) || isNaN(d)){
+            alert('Be serious: enter NUMBERS and try again');
+        } else {
+            switch (op) {
+            case '+':
+                result = num1 + num2;
+                op = 0;
+                break;
+            case '-':
+                result = num1 - num2;
+                op = 0;
+                break;
+            case '*':
+                result = num1 * num2;
+                op = 0;
+                break;
+            case '/':
+                if (num2 != 0) {
+                result = num1 / num2;
+                op = 0;
+                } else {
+                    if (num2 === 0) {
+                        result = '???';
+                        alert('You can not devide by zero!');
+                        reset();
+                        }
+                    }
+                break;
+            default: {
+                alert('Choose the operation');
+                result = '???';
+            }
+            }
+        }
+
+        if (isNaN(c) || isNaN(d)) {
+            result = ':(';
+        }
+
+            document.getElementById("output").innerHTML = result;
+        }
+        function reset(){
+            let num1 = document.getElementsByTagName ('input')[0].value = '';
+            let num2 = document.getElementsByTagName ('input')[1].value = '';
+            let result = document.getElementById("output").innerHTML = '???';
+        }
+
+    </script>
+</body>
+</html>

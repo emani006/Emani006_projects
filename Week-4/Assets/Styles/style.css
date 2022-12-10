@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: 100%;
+  src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSumu0SC55K5gw.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: 'Philosopher';
+  font-style: normal;
+  font-weight: 150;
+  font-stretch: 100%;
+  src: url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Philosopher&display=swap) format('ttf');
+}
+
+/* Top menu */
+.topmenu_bar {
+  margin: 10px;
+
+  font-size: 14px;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  color: #3f3f3f;
+
+  display: inline-block;
+
+  text-align-last: justify;
+}
+
+#logo {
+  margin: 15px;
+}
+
+.green_block {
+  margin: 5px 5px 15px 5px;
+  height: 45px;
+
+  border-radius: 7px;
+
+  background-color: #5ebf40dd;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-size: 14px;;
+}
+
+a.button {
+  text-decoration: none;
+  color: white;
+}
+
+a.button:hover {
+  color:yellow;
+  font-weight: bolder;
+}
+
+/* Select menu */
+.button_menu {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 5px;
+  width: 15px;
+
+  vertical-align: middle;
+  
+  display: inline;
+
+  color:white;
+  text-align: center;
+}
+
+.main {
+  margin: 5px 5px 15px 5px;
+  padding-left: 30px;
+  height: 300px;
+  align-items: center;
+  
+  border: 1px solid grey;
+  
+  background-color: rgba(217, 215, 215, 0.668);
+  text-align: left;
+
+  font-family: 'Philosopher', Arial, Helvetica, sans-serif;
+}
+
+div.main_firstline {
+  font-size: 50px;
+}
+
+.main_text {
+  font-size: 20px;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .calculator {
+            display: grid;
+            width: 650px;
+            height: 350px;
+            grid-template-columns: 1fr;
+            grid-template-rows: 50px 40px 1fr;
+            border: 2px solid grey;
+            background-color: antiquewhite;
+            justify-items: center;
+            border-radius: 40px;
+            box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
+        }
+        h2 {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+            letter-spacing: 2px;
+            color:black;
+        }
+        p {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+            text-align: center;
+            font-size: 16px;
+            color:black;
+        }
+        input {
+            height: 35px;
+            font-size: 16px;
+        }
+        .row_operation {
+            display: grid;
+            grid-template-columns: 100px 50px 100px 30px 1fr;
+            grid-template-rows: 1fr;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .oper {
+            display: grid;
+            grid-template-rows: repeat(4,2.5rem);
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+        }
+        .button_operation {
+            width: 2rem;
+            height: 2rem;
+            font-weight: bold;
+            font-size: 15px;
+            background: rgb(255, 234, 0);
+            box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+            transition: .3s;
+        }
+        .button_operation:hover {
+            background: orange;
+            box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
+            color: white;
+            transform: translateY(-1px);
+            cursor: pointer;
+        }
+        .result {
+            display: grid;
+            height: 35px;
+            background-color: white;
+            font-size: 16px;
+            padding: 5px;
+            align-items: center;
+            text-align: center;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>CALCULATOR</h2>
+        <p>To get a result, enter numbers and choose the operation:</p> 
+        <div class="row_operation">
+            <input id="firstNum" placeholder="number 1" type="text">
+            <div class="oper">
+                <p><button class="button_operation" onclick="op='+'" id="plus" type="button">+</button></p>
+                <p><button class="button_operation" onclick="op='-'" id="minus" type="button">-</button></p>
+                <p><button class="button_operation" onclick="op='*'" id="multy" type="button">*</button></p>
+                <p><button class="button_operation" onclick="op='/'" id="devide" type="button">/</button></p>
+            </div>
+            <input id="secondNum" placeholder="number 2" type="text">
+            <button class="button_operation" onclick="operation()">=</button>
+            <div class="result" id="output">
+                ???
+            </div>
+        </div>
+    </div>
+    <script>
+        var op;
+        function operation() {
+            var result;
+            var num1 = Number(document.getElementById("firstNum").value);
+            var num2 = Number(document.getElementById("secondNum").value);
+        
+            switch (op) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2) {
+                result = num1 / num2;
+                } else {
+                result = 'infinity';
+                }
+                break;
+            default:
+                result = 'Choose smth';
+            }
+
+            document.getElementById("output").innerHTML = result;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 18px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h1{
+            text-align: center;
+        }
+        .title{
+            margin: 10px;
+        }
+        .data_block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            align-items: center;
+        }
+        .text{
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Astronomy picture of today: <span class="date"></span></h1>
+    <div id="out"></div>
+    <div class="title"></div>
+    <div class="data_block">
+        <span class="image"></span>
+        <span class="text"></span>    
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+        try {
+            getNasaImage();
+        } catch (error) {
+            alert('Server does not respond. Error type: ' + error.message);
+            console.log(error.message);
+        }
+        });
+
+        function getNasaImage(){
+            fetch('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+                .then (response => response.json())
+                .then (apod => {
+                    console.log(apod);
+                    document.querySelector('.date').innerHTML = apod.date;
+                    document.querySelector('.title').innerHTML = '* ' + apod.title + ' *';
+                    document.querySelector('.image').innerHTML = '<img src="' + apod.url + '" width="550px">';
+                    document.querySelector('.text').innerHTML = apod.explanation;
+                })
+                .catch(error => console.log(error))
+        }
+    </script>
+</body>
+</html>

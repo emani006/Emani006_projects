@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 30% 30% 1fr;
+            grid-template-rows: 100px 1fr 1fr 100px;
+            /*grid-template-areas:*/
+            
+            border: 1px solid red;
+
+            text-align: center;
+            font-size: 22px;
+            font-family: sans-serif;
+            color: black;
+        }
+
+        header {
+            grid-area: header;
+            background-color: lightgray;
+            border: 1px solid blue;
+        }
+        main {
+            grid-area: main;
+            border: 1px solid yellow;
+        }
+        .more1 {
+            grid-row: 2 / 3;
+            grid-column: 2 / 3;
+            border: 1px solid orange;
+        }
+        aside {
+            grid-area: aside;
+            border: 1px solid green;
+        }
+        footer {
+            grid-area: footer;
+            background-color: lightgray;
+            border: 1px solid grey;
+            padding: 5px;
+        }
+        #part {
+            grid-area: foo_part;
+            height: 50px;
+            
+            border: 1px solid orange;
+            justify-content: space-around;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>[Шапка страницы]</header>
+        <main>
+            <h2>[Основная часть]</h2>
+            
+                <div class="more1">[Еще 1]</div>
+            <!--    
+                <div>[Еще 2]</div>
+                <div>[Еще 3]</div>
+            -->
+                
+        </main>
+        <aside>[Боковая область]</aside>
+        <footer>
+            <!--
+                <div id="part"></div>
+                <div id="part"></div>
+                
+                <div class="foo_part">[Секции футера2]</div>
+                <div class="foo_part">[Секции футера3]</div>
+                <div class="foo_part">[Секции футера4]</div>
+                -->
+        </footer>
+    </div>
+</body>
+</html>

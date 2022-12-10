@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 200px;
+            grid-template-rows: 7fr;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <p>
+        <label>Choose YEAR: </label>
+                <select name="year" required="required"> 
+                    <option value="">Выберите год</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+    </p>
+    <p>
+        <label>Choose MONTH: </label>
+                <select name="month" required="required"> 
+                    <option value="">Выберите месяц</option>
+                    <option value="0">Январь</option>
+                    <option value="1">Февраль</option>
+                    <option value="2">Март</option>
+                    <option value="3">Апрель</option>
+                    <option value="4">Май</option>
+                    <option value="5">Июнь</option>
+                    <option value="6">Июль</option>
+                    <option value="7">Август</option>
+                    <option value="8">Сентябрь</option>
+                    <option value="9">Октябрь</option>
+                    <option value="10">Ноябрь</option>
+                    <option value="11">Декабрь</option>
+                </select>
+    </p>
+Enter DAY <input type="text" id="day">
+Enter Hour <input type="text" id="hour">
+Enter Minutes <input type="text" id="minutes">
+Enter Seconds <input type="text" id="seconds">
+
+    <button onclick="formatDate()">push</button>
+</div>
+    <script>
+        let currentDate = new Date();
+        let newDate = new Date('October 2, 22 18:04:40 GMT+02:00');
+        let diff = currentDate- newDate;
+        console.log(currentDate);
+        console.log(newDate);
+        console.log(diff);
+
+
+        function formatDate(){
+            if (diff < 1000) {
+                alert('прямо сейчас');
+            }
+            if (diff>1 && diff < 30000) {
+                alert("30 сек. назад");
+            }
+            if (diff>30000 && diff < 300000) {
+                alert("5 мин. назад");
+            }
+            if (5 * 60 * 1000 < diff) {
+                alert("давно");
+            }
+        }
+    </script>
+</body>
+</html>
