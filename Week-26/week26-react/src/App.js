@@ -9,7 +9,7 @@ class App extends React.Component {
       <div className="App">
         {
           superheros.map((hero) =>
-            <Super image={hero.image} name={hero.name} rating={hero.rating} description={hero.description} features={hero.features}></Super>)
+            <Super key={hero.name} image={hero.image} name={hero.name} rating={hero.rating} description={hero.description} features={hero.features}></Super>)
         }
       </div>
     );
