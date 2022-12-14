@@ -1,0 +1,60 @@
+    body{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .App {
+        display: flex;
+        flex-direction: row;
+    }
+    .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content:baseline;
+        width: 300px;
+        height: 650px;
+        background-color:antiquewhite;
+        border: 1px solid maroon;
+        border-radius: 20px;
+        padding: 15px;
+        margin: 10px;
+    }
+    .header{
+        margin: 15px;
+        text-align: center;
+        color:brown;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .title{
+        color: slateblue;
+        font-size: 13px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    .rate{
+        margin: 10px;
+    }
+    .text{
+        color: black;
+        font-size: 11px;
+        font-weight: normal;
+    }
+    img{
+        width: 250px;
+        height: 170px;
+        margin: 0 auto;
+    }
+input {
+    width: 35px;
+}
+
+/*
+    button{
+        width: 150px;
+        height: 25px;
+        margin: 10px auto;
+        box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+        transition: .3s;
+        background-color:lavender;
+    }
+*/
